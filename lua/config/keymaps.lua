@@ -2,13 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.keymap.set(
-  { "n", "v", "i", "t" },
-  "<F4>",
-  "<cmd>ToggleTerm direction=float<cr>",
-  { desc = "Toggle Terminal Float" }
-)
-
 vim.keymap.set({ "n" }, "<leader>fdw", "<cmd>Telescope dir live_grep<cr>", { desc = "Search Word in Directory" })
 vim.keymap.set({ "n" }, "<leader>fdf", "<cmd>Telescope dir live_grep<cr>", { desc = "Search File in Directory" })
 vim.keymap.set({ "n" }, "<leader>n", "<cmd>nohlsearch<cr>", { desc = "Disable Highlighted Search" })

@@ -13,11 +13,21 @@ return {
       custom_textobjects = {
         t = false,
       },
+      search_method = "cover_or_nearest",
     },
   },
   { "ellisonleao/gruvbox.nvim" },
   { "rebelot/kanagawa.nvim" },
-
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
@@ -431,7 +441,6 @@ return {
       require("ufo").setup(opts)
     end,
   },
-  { "akinsho/toggleterm.nvim", version = "*", config = true },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
