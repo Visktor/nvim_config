@@ -34,12 +34,12 @@ return {
       end
 
       -- Hide suggestions when the completion menu is open.
-      cmp.event:on("menu_opened", function()
-        if copilot.is_visible() then
-          copilot.dismiss()
-        end
-        set_trigger(false)
-      end)
+      -- cmp.event:on("menu_opened", function()
+      --   if copilot.is_visible() then
+      --     copilot.dismiss()
+      --   end
+      --   set_trigger(false)
+      -- end)
 
       -- Disable suggestions when inside a snippet.
       cmp.event:on("menu_closed", function()

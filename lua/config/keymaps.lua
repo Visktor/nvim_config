@@ -39,3 +39,4 @@ remap({ "n" }, "s", "<cmd>HopWord<cr>", opts)
 
 -- Insert
 remap({ "i" }, "<C-l>", "<DEL>")
+remap({ "i" }, "<C-z>", "<C-o>u")

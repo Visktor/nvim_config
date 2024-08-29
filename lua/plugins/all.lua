@@ -1,11 +1,4 @@
--- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
---
--- In your plugin files, you can:
--- * add extra plugins
--- * disable/enabled LazyVim plugins
--- * override the configuration of LazyVim plugins
 return {
-  -- add gruvbox
   {
     "echasnovski/mini.ai",
     opts = {
@@ -50,10 +43,8 @@ return {
       })
     end,
   },
-
   {
     "nvim-neo-tree/neo-tree.nvim",
-
     opts = {
       filesystem = {
         bind_to_cwd = false,
@@ -72,6 +63,45 @@ return {
         "stylua",
       },
     },
+  },
+  {
+    "kevinhwang91/nvim-hlslens",
+    config = function()
+      local hlslens = require("hlslens")
+      if hlslens then
+        local overrideLens = function(render, posList, nearest, idx, relIdx)
+          local _ = relIdx
+          local lnum, col = unpack(posList[idx])
+
+          local text, chunks
+          if nearest then
+            text = ("[%d/%d]"):format(idx, #posList)
+            chunks = { { " ", "Ignore" }, { text, "VM_Extend" } }
+          else
+            text = ("[%d]"):format(idx)
+            chunks = { { " ", "Ignore" }, { text, "HlSearchLens" } }
+          end
+          render.setVirt(0, lnum - 1, col - 1, chunks, nearest)
+        end
+        local lensBak
+        local config = require("hlslens.config")
+        local gid = vim.api.nvim_create_augroup("VMlens", {})
+        vim.api.nvim_create_autocmd("User", {
+          pattern = { "visual_multi_start", "visual_multi_exit" },
+          group = gid,
+          callback = function(ev)
+            if ev.match == "visual_multi_start" then
+              lensBak = config.override_lens
+              config.override_lens = overrideLens
+            else
+              config.override_lens = lensBak
+            end
+            hlslens.start()
+          end,
+        })
+      end
+    end,
+    event = "VeryLazy",
   },
   {
     "mg979/vim-visual-multi",
@@ -147,6 +177,7 @@ return {
     dependencies = {
       {
         "princejoogie/dir-telescope.nvim",
+        "debugloop/telescope-undo.nvim",
       },
     },
     opts = {
@@ -156,6 +187,11 @@ return {
         winblend = 0,
       },
     },
+
+    config = function(_, opts)
+      require("telescope").load_extension("undo")
+      return opts
+    end,
   },
   {
     "princejoogie/dir-telescope.nvim",
@@ -169,6 +205,20 @@ return {
         show_preview = true,
       })
     end,
+    keys = {
+      { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Undo Tree" },
+    },
   },
   { "akinsho/toggleterm.nvim", version = "*", config = true },
+  {
+    "jiaoshijie/undotree",
+    dependencies = "nvim-lua/plenary.nvim",
+    config = true,
+    keys = {
+      { "<leader>cu", "<cmd>lua require('undotree').toggle()<cr>", desc = "Undo Tree" },
+    },
+  },
+  {
+    "m-demare/hlargs.nvim",
+  },
 }
