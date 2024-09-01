@@ -1,8 +1,23 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
+local opt = vim.opt
 
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldmethod = "expr"
-vim.opt.foldlevel = 99
-vim.opt.foldnestmax = 1
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldmethod = "expr"
+
+opt.foldlevel = 99
+opt.foldnestmax = 1
+
+opt.guicursor = ""
+opt.relativenumber = true
+
+opt.smartindent = true
+
+opt.shiftwidth = 4
+opt.tabstop = 4
+opt.softtabstop = 4
+
+vim.g.lazyvim_prettier_needs_config = true
+
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
+
+opt.formatoptions:append({ "r" })

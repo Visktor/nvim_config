@@ -1,3 +1,6 @@
--- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
--- Add any additional autocmds here
+-- Until i figure out why the fuck the vim.opt.guicursor is not working.
+vim.api.nvim_create_autocmd("BufRead", {
+  callback = function()
+    vim.cmd('set guicursor=""')
+  end,
+})
