@@ -1,5 +1,5 @@
 local map = vim.keymap.set
--- local unmap = vim.keymap.del
+local unmap = vim.keymap.del
 local opts = { noremap = true, silent = true }
 
 --> Terminal
@@ -65,25 +65,27 @@ end, { silent = true, desc = "Quick Refactor" })
 --> Goto Preview
 --Can't figure out why the which key description is not working
 --Unmapping the key didn't work either
+unmap({ "n", "v" }, "gP")
+unmap({ "n", "v" }, "gp")
 map("n", "gp", "", { desc = "Goto Preview", silent = true })
 map("n", "gpd", function()
   require("goto-preview").goto_preview_definition({})
-end, { desc = "Goto Preview Definition" })
+end, { desc = "Preview Definition" })
 map("n", "gpt", function()
   require("goto-preview").goto_preview_type_definition({})
-end, { desc = "Goto Preview Type " })
+end, { desc = "Preview Type " })
 map("n", "gpi", function()
   require("goto-preview").goto_preview_implementation({})
-end, { desc = "Goto Preview Implementation" })
+end, { desc = "Preview Implementation" })
 map("n", "gpD", function()
   require("goto-preview").goto_preview_declaration({})
-end, { desc = "Goto Preview Declaration" })
-map("n", "gP", function()
+end, { desc = "Preview Declaration" })
+map("n", "gpp", function()
   require("goto-preview").close_all_win({})
-end, { desc = "Goto Preview Close All" })
+end, { desc = "Close All Previews" })
 map("n", "gpr", function()
   require("goto-preview").goto_preview_references({})
-end, { desc = "Goto Preview References" })
+end, { desc = "Preview References" })
 
 --> Actions Preview
 map({ "v", "n" }, "<leader>cp", require("actions-preview").code_actions, { desc = "Preview Code Actions" })

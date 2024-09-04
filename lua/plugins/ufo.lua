@@ -43,6 +43,8 @@ return {
       return newVirtText
     end
 
+    -- TODO: figure out how to make folds include last line
+    opts.enable_get_fold_virt_text = true
     opts.fold_virt_text_handler = handler
 
     require("ufo").setup(opts)

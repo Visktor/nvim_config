@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-storm",
+      colorscheme = "tokyonight",
     },
   },
   { "ellisonleao/gruvbox.nvim" },
@@ -21,18 +21,17 @@ return {
   {
     "folke/tokyonight.nvim",
     opts = {
-      on_colors = function(colors)
-        colors.bg_visual = "#007197"
-      end,
-      transparent = false,
+      transparent = true,
       styles = {
-        keywords = { bold = true, italic = true },
+        sidebars = "transparent",
+        floats = "transparent",
+        keywords = { italic = true },
         comments = { italic = true },
         functions = { italic = true, bold = true },
+        variables = { italic = true },
         strings = { italic = true },
       },
     },
   },
-
   { "sainnhe/gruvbox-material" },
 }
