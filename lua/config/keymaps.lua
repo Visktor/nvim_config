@@ -13,10 +13,6 @@ map({ "n" }, "-", "<C-x>")
 --> Movement
 map({ "n" }, "<C-d>", "<C-d>zz")
 map({ "n" }, "<C-u>", "<C-u>zz")
-map({ "n" }, "n", "nzz")
-map({ "n" }, "N", "Nzz")
-map({ "n" }, "#", "#zz")
-map({ "n" }, "*", "*zz")
 
 --> Registers
 map("x", "<M-p>", [["_dP]])
