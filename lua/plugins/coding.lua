@@ -66,7 +66,11 @@ return {
   {
     "chrisgrieser/nvim-recorder",
     dependencies = "rcarriga/nvim-notify",
-    opts = {},
+    opts = {
+      mapping = {
+        addBreakPoint = "&",
+      },
+    },
   },
   { "chentoast/marks.nvim", opts = {}, event = "BufRead" },
   {
