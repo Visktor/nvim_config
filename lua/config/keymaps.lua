@@ -21,7 +21,7 @@ map("n", "<M-Y>", [["+Y]])
 map({ "n", "v" }, "<M-d>", [["_d]])
 
 --> Util
-map("i", "<C-c>", "<Esc>")
+map({ "i", "n" }, "<C-c>", "<Esc>")
 map({ "n" }, "<leader>n", "<cmd>nohlsearch<cr>", { desc = "Disable Highlighted Search" })
 
 --> Insert
