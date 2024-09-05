@@ -16,7 +16,9 @@ return {
     },
 
     keys = {
-      { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Undo Tree" },
+      { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Telescope Undo Tree" },
+      { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Telescope Marks" },
+      { "<leader>fj", "<cmd>Telescope jumplist<cr>", desc = "Telescope JumpList" },
     },
 
     config = function(_, opts)
