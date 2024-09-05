@@ -15,6 +15,9 @@ opt.shiftwidth = 4
 opt.tabstop = 4
 opt.softtabstop = 4
 
+opt.textwidth = 80
+opt.wrap = true
+
 vim.g.lazyvim_prettier_needs_config = true
 
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
