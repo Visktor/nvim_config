@@ -19,7 +19,7 @@ return {
       },
     },
     keys = {
-      { "<leader>a", "<cmd>Neotree reveal<cr>", desc = "Reveal current file on Neotree" },
+      { "<leader>.", "<cmd>Neotree reveal<cr>", desc = "Reveal current file on Neotree" },
     },
   },
   {

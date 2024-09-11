@@ -1,5 +1,10 @@
 return {
   {
+    "nvim-zh/colorful-winsep.nvim",
+    event = "WinLeave",
+    opts = {},
+  },
+  {
     "kevinhwang91/nvim-hlslens",
     config = function()
       local hlslens = require("hlslens")
@@ -81,5 +86,11 @@ return {
   {
     "aznhe21/actions-preview.nvim",
     opts = {},
+  },
+  {
+    "razak17/tailwind-fold.nvim",
+    opts = {},
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    ft = { "html", "svelte", "astro", "vue", "typescriptreact", "php", "blade" },
   },
 }

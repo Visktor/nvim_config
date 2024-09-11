@@ -22,6 +22,9 @@ return {
     "folke/tokyonight.nvim",
     opts = {
       transparent = true,
+      on_colors = function(colors)
+        colors.bg_visual = "#6C77B5"
+      end,
       styles = {
         sidebars = "transparent",
         floats = "transparent",

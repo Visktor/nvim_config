@@ -15,11 +15,13 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      inlay_hints = { enabled = false },
-      servers = { eslint = {}, marksman = {} },
-
-      setup = {
+    opts = function(_, opts)
+      opts.diagnostics = vim.tbl_extend("force", opts.diagnostics, {
+        virtual_text = false,
+      })
+      opts.inlay_hints = { enabled = false }
+      opts.servers = { eslint = {}, marksman = {} }
+      opts.setup = {
         eslint = function()
           require("lazyvim.util").lsp.on_attach(function(client)
             if client.name == "eslint" then
@@ -29,7 +31,8 @@ return {
             end
           end)
         end,
-      },
-    },
+      }
+      return opts
+    end,
   },
 }

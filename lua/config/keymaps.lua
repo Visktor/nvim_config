@@ -85,3 +85,6 @@ end, { desc = "Preview References" })
 
 --> Actions Preview
 map({ "v", "n" }, "<leader>cp", require("actions-preview").code_actions, { desc = "Preview Code Actions" })
+
+--> Obsidian
+map({ "n" }, "<leader>of", "<cmd>ObsidianFollowLink<CR>", { desc = "Obsidian Go to File" })

@@ -7,23 +7,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-
-    keys = {
-      {
-        "<leader>of",
-        function()
-          return require("obsidian").util.gf_passthrough()
-        end,
-        desc = "Obsidian Go to File",
-      },
-      -- toggle check-boxes
-      -- ["<leader>ch"] = {
-      --   action = function()
-      --     return require("obsidian").util.toggle_checkbox()
-      --   end,
-      --   opts = { buffer = true },
-      -- },
-    },
     config = function()
       require("obsidian").setup({
         workspaces = {
