@@ -29,6 +29,10 @@ map({ "i" }, "<C-l>", "<DEL>")
 map({ "i" }, "<C-z>", "<C-o>u")
 
 --> Windows
+map("n", "<left>", ":vertical resize +1<cr>")
+map("n", "<right>", ":vertical resize -1<cr>")
+map("n", "<up>", ":resize +1<cr>")
+map("n", "<down>", ":resize -1<cr>")
 map("n", "<leader><left>", ":vertical resize +20<cr>")
 map("n", "<leader><right>", ":vertical resize -20<cr>")
 map("n", "<leader><up>", ":resize +10<cr>")
