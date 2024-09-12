@@ -28,6 +28,9 @@ return {
           ["h"] = {
             add = { "==", "==" },
           },
+          ["l"] = {
+            add = { "[[", "]]" },
+          },
         },
       })
     end,
@@ -47,7 +50,7 @@ return {
     event = "VeryLazy",
     vscode = true,
     keys = {
-      { "S", mode = { "x", "o" }, false },
+      { "S", mode = { "x" }, false },
       { "s", mode = { "n" }, false },
     },
   },

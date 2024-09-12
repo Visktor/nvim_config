@@ -12,7 +12,7 @@ map({ "n" }, "-", "<C-x>")
 
 --> Movement
 map({ "n" }, "<C-d>", "<C-d>zz")
-map({ "n" }, "<C-u>", "<C-u>zz")
+map({ "n" }, "<C- >", "<C-u>zz")
 
 --> Registers
 map("x", "<M-p>", [["_dP]])
@@ -88,3 +88,4 @@ map({ "v", "n" }, "<leader>cp", require("actions-preview").code_actions, { desc 
 
 --> Obsidian
 map({ "n" }, "<leader>of", "<cmd>ObsidianFollowLink<CR>", { desc = "Obsidian Go to File" })
+map({ "n" }, "<leader>or", "<cmd>RenderMarkdown toggle<CR>")
