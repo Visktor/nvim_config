@@ -29,12 +29,8 @@ map({ "i" }, "<C-l>", "<DEL>")
 map({ "i" }, "<C-z>", "<C-o>u")
 
 --> Windows
-map("n", "<left>", ":vertical resize +1<cr>")
-map("n", "<right>", ":vertical resize -1<cr>")
-map("n", "<up>", ":resize +1<cr>")
-map("n", "<down>", ":resize -1<cr>")
-map("n", "<leader><left>", ":vertical resize +20<cr>")
-map("n", "<leader><right>", ":vertical resize -20<cr>")
+map("n", "<leader><left>", ":vertical resize +15<cr>")
+map("n", "<leader><right>", ":vertical resize -15<cr>")
 map("n", "<leader><up>", ":resize +10<cr>")
 map("n", "<leader><down>", ":resize -10<cr>")
 
@@ -46,11 +42,11 @@ map({ "n" }, "<leader>fdf", "<cmd>Telescope dir live_grep<cr>", { desc = "Search
 map({ "n" }, "s", "<cmd>HopWord<cr>", opts)
 
 --> Surround
-map("o", "ir", "i[")
-map("o", "ir", "i[")
-map("o", "ar", "a[")
-map("o", "ia", "i<")
-map("o", "aa", "a<")
+map({ "o", "v" }, "ir", "i[")
+map({ "o", "v" }, "ir", "i[")
+map({ "o", "v" }, "ar", "a[")
+map({ "o", "v" }, "ia", "i<")
+map({ "o", "v" }, "aa", "a<")
 
 --> Obsidian
 map("n", "<leader>o", "", { silent = true, desc = "Obsidian" })

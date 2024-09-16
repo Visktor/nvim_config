@@ -15,4 +15,7 @@ return {
     },
     cmd = { "SudaRead", "SudaWrite" },
   },
+  -- {
+  --     "sindrets/diffview.nvim"
+  -- }
 }

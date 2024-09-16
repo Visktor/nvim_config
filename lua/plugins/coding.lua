@@ -1,7 +1,7 @@
 return {
   {
     "mg979/vim-visual-multi",
-    event = "bufRead",
+    lazy = false,
   },
   {
     "kylechui/nvim-surround",

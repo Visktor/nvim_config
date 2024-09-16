@@ -28,10 +28,10 @@ return {
       styles = {
         sidebars = "transparent",
         floats = "transparent",
-        keywords = { italic = true },
-        comments = { italic = true },
+        keywords = { bold = true },
+        comments = {},
         functions = { italic = true, bold = true },
-        variables = { italic = true },
+        -- variables = { italic = true },
         strings = { italic = true },
       },
     },
