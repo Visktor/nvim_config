@@ -9,13 +9,7 @@ return {
   {
     "rebelot/kanagawa.nvim",
     config = function()
-      require("kanagawa").setup({
-        commentStyle = { italic = true },
-        undercurl = true,
-        functionStyle = {},
-        keywordStyle = { italic = true },
-        statementStyle = { bold = true },
-      })
+      require("kanagawa").setup({})
     end,
   },
   {
@@ -29,10 +23,8 @@ return {
         sidebars = "transparent",
         floats = "transparent",
         keywords = { bold = true },
-        comments = {},
-        functions = { italic = true, bold = true },
-        -- variables = { italic = true },
-        strings = { italic = true },
+        comments = { italic = true },
+        functions = { bold = true },
       },
     },
   },

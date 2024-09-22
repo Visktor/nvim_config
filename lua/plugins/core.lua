@@ -19,7 +19,7 @@ return {
       },
     },
     keys = {
-      { "<leader>.", "<cmd>Neotree reveal<cr>", desc = "Reveal current file on Neotree" },
+      { "<leader>z", "<cmd>Neotree reveal<cr>", desc = "Reveal current file on Neotree" },
     },
   },
   {
@@ -31,4 +31,12 @@ return {
     },
   },
   { "akinsho/toggleterm.nvim", version = "*", config = true },
+  {
+    "folke/noice.nvim",
+    optional = true,
+    opts = {
+      presets = { inc_rename = true },
+      level = "WARN",
+    },
+  },
 }

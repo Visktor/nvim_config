@@ -35,8 +35,9 @@ map("n", "<leader><up>", ":resize +10<cr>")
 map("n", "<leader><down>", ":resize -10<cr>")
 
 --> Telescope
-map({ "n" }, "<leader>fdw", "<cmd>Telescope dir live_grep<cr>", { desc = "Search Word in Directory" })
-map({ "n" }, "<leader>fdf", "<cmd>Telescope dir live_grep<cr>", { desc = "Search File in Directory" })
+map({ "n" }, "<leader>fD", "", { desc = "Find in Directory" })
+map({ "n" }, "<leader>fDw", "<cmd>Telescope dir live_grep<cr>", { desc = "Find Word in Directory" })
+map({ "n" }, "<leader>fDf", "<cmd>Telescope dir live_grep<cr>", { desc = "Find File in Directory" })
 
 --> Hop
 map({ "n" }, "s", "<cmd>HopWord<cr>", opts)
@@ -88,4 +89,6 @@ map({ "v", "n" }, "<leader>cp", require("actions-preview").code_actions, { desc 
 
 --> Obsidian
 map({ "n" }, "<leader>of", "<cmd>ObsidianFollowLink<CR>", { desc = "Obsidian Go to File" })
-map({ "n" }, "<leader>or", "<cmd>RenderMarkdown toggle<CR>")
+map({ "n" }, "<leader>or", "<cmd>RenderMarkdown toggle<CR>", { desc = "Obsidian Render Markdown" })
+map({ "n" }, "<leader>oe", "<cmd>ObsidianExtractNote<CR>", { desc = "Obsidian Extract to Note" })
+map({ "n" }, "<leader>od", "<cmd>ObsidianToday<CR>", { desc = "Obsidian Create Daily Note" })

@@ -19,11 +19,10 @@ return {
           dismiss = "<M-x>",
         },
       },
-      filetypes = { markdown = true },
+      filetypes = { markdown = false },
     },
     config = function(_, opts)
       local cmp = require("cmp")
-      local copilot = require("copilot.suggestion")
       local luasnip = require("luasnip")
 
       require("copilot").setup(opts)
@@ -33,15 +32,6 @@ return {
         vim.b.copilot_suggestion_hidden = not trigger
       end
 
-      -- Hide suggestions when the completion menu is open.
-      -- cmp.event:on("menu_opened", function()
-      --   if copilot.is_visible() then
-      --     copilot.dismiss()
-      --   end
-      --   set_trigger(false)
-      -- end)
-
-      -- Disable suggestions when inside a snippet.
       cmp.event:on("menu_closed", function()
         set_trigger(not luasnip.expand_or_locally_jumpable())
       end)
@@ -51,6 +41,8 @@ return {
           set_trigger(not luasnip.expand_or_locally_jumpable())
         end,
       })
+
+      return opts
     end,
   },
 }
