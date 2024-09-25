@@ -1,6 +1,7 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    lazy = false,
     dependencies = {
       {
         "princejoogie/dir-telescope.nvim",

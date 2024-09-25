@@ -39,4 +39,8 @@ return {
       level = "WARN",
     },
   },
+  {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
 }
