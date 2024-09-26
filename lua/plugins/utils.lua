@@ -18,4 +18,12 @@ return {
   -- {
   --     "sindrets/diffview.nvim"
   -- }
+  {
+    "tzachar/highlight-undo.nvim",
+    opts = {
+      ...,
+    },
+  },
+{'kevinhwang91/nvim-bqf'}
 }
+--

@@ -48,11 +48,17 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    vscode = true,
     keys = {
-      { "S", mode = { "x" }, false },
+      { "S", false },
       { "s", mode = { "n" }, false },
     },
+        opts = {
+            modes = {
+                search = {
+                    enabled = true
+                }
+            }
+        }
   },
   {
     "smoka7/hop.nvim",
@@ -75,15 +81,15 @@ return {
       { "<leader>cu", "<cmd>lua require('undotree').toggle()<cr>", desc = "Undo Tree" },
     },
   },
-  {
-    "chrisgrieser/nvim-recorder",
-    dependencies = "rcarriga/nvim-notify",
-    opts = {
-      mapping = {
-        addBreakPoint = "&",
-      },
-    },
-  },
+  -- {
+  --   "chrisgrieser/nvim-recorder",
+  --   dependencies = "rcarriga/nvim-notify",
+  --   opts = {
+  --     mapping = {
+  --       addBreakPoint = "&",
+  --     },
+  --   },
+  -- },
   { "chentoast/marks.nvim", opts = {}, event = "BufRead" },
   {
     "ckolkey/ts-node-action",

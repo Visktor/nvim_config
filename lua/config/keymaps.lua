@@ -93,7 +93,9 @@ map({ "n" }, "<leader>or", "<cmd>RenderMarkdown toggle<CR>", { desc = "Obsidian 
 map({ "n" }, "<leader>oe", "<cmd>ObsidianExtractNote<CR>", { desc = "Obsidian Extract to Note" })
 map({ "n" }, "<leader>od", "<cmd>ObsidianToday<CR>", { desc = "Obsidian Create Daily Note" })
 
--- TODO: nothing
+--> TSC
+map({ "n"}, "<leader>cT", "<cmd>TSC<CR>", { desc = "Run TSC on Project" })
+
 --> Buffers
 map("n", "H", "<Cmd>BufferPrevious<CR>", opts)
 map("n", "L", "<Cmd>BufferNext<CR>", opts)
@@ -108,20 +110,24 @@ map("n", "<leader>b6>", "<Cmd>BufferGoto 6<CR>", opts)
 map("n", "<leader>b7>", "<Cmd>BufferGoto 7<CR>", opts)
 map("n", "<leader>b8>", "<Cmd>BufferGoto 8<CR>", opts)
 map("n", "<leader>b9", "<Cmd>BufferGoto 9<CR>", opts)
-map("n", "<leader>br", "<Cmd>BufferLast<CR>", opts)
-map("n", "<leader>bR", "<Cmd>BufferRestore<CR>", opts)
-
+map("n", "<leader>bl", "<Cmd>BufferLast<CR>", opts)
+map("n", "<leader>br", "<Cmd>BufferRestore<CR>", opts)
 map("n", "<leader>bp", "<Cmd>BufferPin<CR>", opts)
 map("n", "<leader>bgp", "<cmd>BufferGotoPinned<CR>", opts)
 map("n", "<leader>bgP", "<cmd>BufferGotoUnpinned<CR>", opts)
 map("n", "<leader>bd", "<Cmd>BufferClose<CR>", opts)
 map("n", "<leader>bo", "<Cmd>BufferCloseAllButCurrent<CR>", { desc = "Close Other Buffers" })
 map("n", "<leader>bP", "<Cmd>BufferCloseAllButPinned<CR>", { desc = "Close All Unpinned" })
-map("n", "<leader>bl", "<Cmd>BufferCloseBuffersLeft<CR>", { desc = "Close Buffers To The Left" })
-map("n", "<leader>bl", "<Cmd>BufferCloseBuffersRight<CR>", { desc = "Close Buffers To The Right" })
+map("n", "<leader>bL", "<Cmd>BufferCloseBuffersLeft<CR>", { desc = "Close Buffers To The Left" })
+map("n", "<leader>bR", "<Cmd>BufferCloseBuffersRight<CR>", { desc = "Close Buffers To The Right" })
 map("n", "<leader>bM", "<Cmd>BufferPick<CR>", opts)
 map("n", "<leader>bsn", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
 map("n", "<leader>bsN", "<Cmd>BufferOrderByName<CR>", opts)
 map("n", "<leader>bsd", "<Cmd>BufferOrderByDirectory<CR>", opts)
 map("n", "<leader>bsl", "<Cmd>BufferOrderByLanguage<CR>", opts)
 map("n", "<leader>bsw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
+
+--> Marcos
+-- personal preference, but I don't really record multiple macros at once
+map({ "n" }, "q", "qa")
+map({ "n" }, "Q", "@a")

@@ -25,7 +25,7 @@ return {
         return colors
       end,
 
-      on_highlights = function(hl, c)
+      on_highlights = function(hl)
         hl.LineNr = {
           fg = "#6C77B5",
         }
