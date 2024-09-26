@@ -4,12 +4,9 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     opts = {
-      -- I don't find the panel useful.
       panel = { enabled = false },
       suggestion = {
         auto_trigger = true,
-        -- Disable the built-in mapping, we'll configure it in nvim-cmp.
-        -- Use alt to interact with Copilot.
         keymap = {
           accept = "<M-b>",
           accept_line = "<M-c>",
