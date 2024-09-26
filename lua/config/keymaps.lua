@@ -12,7 +12,7 @@ map({ "n" }, "-", "<C-x>")
 
 --> Movement
 map({ "n" }, "<C-d>", "<C-d>zz")
-map({ "n" }, "<C- >", "<C-u>zz")
+map({ "n" }, "<C-u>", "<C-u>zz")
 
 --> Registers
 map("x", "<M-p>", [["_dP]])
@@ -93,6 +93,7 @@ map({ "n" }, "<leader>or", "<cmd>RenderMarkdown toggle<CR>", { desc = "Obsidian 
 map({ "n" }, "<leader>oe", "<cmd>ObsidianExtractNote<CR>", { desc = "Obsidian Extract to Note" })
 map({ "n" }, "<leader>od", "<cmd>ObsidianToday<CR>", { desc = "Obsidian Create Daily Note" })
 
+-- TODO: nothing
 --> Buffers
 map("n", "H", "<Cmd>BufferPrevious<CR>", opts)
 map("n", "L", "<Cmd>BufferNext<CR>", opts)

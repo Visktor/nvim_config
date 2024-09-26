@@ -12,7 +12,6 @@ return {
       require("kanagawa").setup({
         transparent = true,
         theme = "wave",
-        -- terminalColors = true,
       })
     end,
   },
