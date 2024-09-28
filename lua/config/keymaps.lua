@@ -23,6 +23,7 @@ map({ "n", "v" }, "<M-d>", [["_d]])
 --> Util
 map({ "i", "n" }, "<C-c>", "<Esc>")
 map({ "n" }, "<leader>n", "<cmd>nohlsearch<cr>", { desc = "Disable Highlighted Search" })
+map({ "n" }, "<leader>ce", "<cmd>EslintFixAll<cr>", { desc = "Eslint Fix" })
 
 --> Insert
 map({ "i" }, "<C-l>", "<DEL>")
@@ -48,11 +49,11 @@ map({ "o", "v" }, "ir", "i[")
 map({ "o", "v" }, "ar", "a[")
 map({ "o", "v" }, "ia", "i<")
 map({ "o", "v" }, "aa", "a<")
+map({ "o", "v" }, "ia", "i<")
+map({ "o", "v" }, "aa", "a<")
 
 --> Obsidian
 map("n", "<leader>o", "", { silent = true, desc = "Obsidian" })
-map("n", "<leader>oy", [[:s/\[\s\]/[ ]/<cr>]], { silent = true, desc = "Check" })
-map("n", "<leader>ou", [[:s/\[x\]/[ ]/<cr>]], { silent = true, desc = "Uncheck" })
 
 --> Node Action
 map({ "n", "v" }, "<leader>ck", function()

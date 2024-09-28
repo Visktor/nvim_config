@@ -10,6 +10,7 @@ return {
     config = function()
       require("nvim-surround").setup({
         surrounds = {
+          ["A"] = {add = { "<", "/>" }},
           ["q"] = {
             add = { "'", "'" },
           },
@@ -32,6 +33,18 @@ return {
             add = { "[[", "]]" },
           },
         },
+        keymaps = {
+          -- insert = "<C-g>s",
+          -- insert_line = "<C-g>S",
+          normal = "S",
+          normal_cur = "SS",
+          normal_cur_line = "SSG",
+          visual = "S",
+          visual_line = "SG",
+          delete = "ds",
+          change = "cs",
+          change_line = "cS",
+        },
       })
     end,
   },
@@ -49,16 +62,25 @@ return {
     "folke/flash.nvim",
     event = "VeryLazy",
     keys = {
-      { "S", false },
-      { "s", mode = { "n" }, false },
+      { "S", mode = { "n", "o", "t", "i", "s", "x" }, false },
+      { "s", mode = { "n", "o" }, false },
     },
-        opts = {
-            modes = {
-                search = {
-                    enabled = true
-                }
-            }
-        }
+    opts = {
+      modes = {
+        treesitter_search = {
+          enabled = false,
+        },
+        remote = {
+          enabled = false,
+        },
+        treesitter = {
+          enabled = false,
+        },
+        search = {
+          enabled = true,
+        },
+      },
+    },
   },
   {
     "smoka7/hop.nvim",
@@ -81,15 +103,6 @@ return {
       { "<leader>cu", "<cmd>lua require('undotree').toggle()<cr>", desc = "Undo Tree" },
     },
   },
-  -- {
-  --   "chrisgrieser/nvim-recorder",
-  --   dependencies = "rcarriga/nvim-notify",
-  --   opts = {
-  --     mapping = {
-  --       addBreakPoint = "&",
-  --     },
-  --   },
-  -- },
   { "chentoast/marks.nvim", opts = {}, event = "BufRead" },
   {
     "ckolkey/ts-node-action",
