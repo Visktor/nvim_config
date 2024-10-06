@@ -18,12 +18,6 @@ return {
   -- {
   --     "sindrets/diffview.nvim"
   -- }
-  {
-    "tzachar/highlight-undo.nvim",
-    opts = {
-      ...,
-    },
-  },
   { "kevinhwang91/nvim-bqf" },
   {
     "sustech-data/wildfire.nvim",
@@ -62,20 +56,39 @@ return {
     end,
   },
   {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    opts = {
-      pre_save = function()
-        vim.api.nvim_exec_autocmds("User", { pattern = "SessionSavePre" })
-      end,
+    "stevearc/resession.nvim",
+    lazy = false,
+    dependencies = {
+      {
+        "tiagovla/scope.nvim",
+        lazy = false,
+        config = true,
+      },
     },
-  -- stylua: ignore
-  keys = {
-    { "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
-    { "<leader>qS", function() require("persistence").select() end,desc = "Select Session" },
-    { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
-    { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
+    opts = {
+      -- override default filter
+      buf_filter = function(bufnr)
+        local buftype = vim.bo[bufnr].buftype
+        if buftype == "help" then
+          return true
+        end
+        if buftype ~= "" and buftype ~= "acwrite" then
+          return false
+        end
+        if vim.api.nvim_buf_get_name(bufnr) == "" then
+          return false
+        end
+
+        -- this is required, since the default filter skips nobuflisted buffers
+        return true
+      end,
+      extensions = { scope = {} }, -- add scope.nvim extension
+    },
   },
+  {
+    "chrisgrieser/nvim-recorder",
+    dependencies = "rcarriga/nvim-notify",
+    opts = {},
   },
 }
 --

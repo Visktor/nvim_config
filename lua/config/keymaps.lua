@@ -91,7 +91,7 @@ map({ "n" }, "<leader>oe", "<cmd>ObsidianExtractNote<CR>", { desc = "Obsidian Ex
 map({ "n" }, "<leader>od", "<cmd>ObsidianToday<CR>", { desc = "Obsidian Create Daily Note" })
 
 --> TSC
-map({ "n"}, "<leader>cT", "<cmd>TSC<CR>", { desc = "Run TSC on Project" })
+map({ "n" }, "<leader>cT", "<cmd>TSC<CR>", { desc = "Run TSC on Project" })
 
 --> Buffers
 map("n", "H", "<Cmd>BufferPrevious<CR>", opts)
@@ -124,7 +124,16 @@ map("n", "<leader>bsd", "<Cmd>BufferOrderByDirectory<CR>", opts)
 map("n", "<leader>bsl", "<Cmd>BufferOrderByLanguage<CR>", opts)
 map("n", "<leader>bsw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 
---> Marcos
--- personal preference, but I don't really record multiple macros at once
-map({ "n" }, "q", "qa")
-map({ "n" }, "Q", "@a")
+--> Sessions
+map("n", "<leader>qs", function()
+  require("resession").save()
+end, { desc = "Save Session" })
+map("n", "<leader>qa", function()
+  require("resession").load()
+end, { desc = "List Sessions" })
+map("n", "<leader>ql", function()
+  require("resession").load("last")
+end, { desc = "Restore last" })
+map("n", "<leader>qd", function()
+  require("resession").delete()
+end, { desc = "Delete Session" })

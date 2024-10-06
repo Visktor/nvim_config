@@ -1,9 +1,9 @@
 return {
-  -- {
-  --   "nvim-zh/colorful-winsep.nvim",
-  --   event = "WinLeave",
-  --   opts = {},
-  -- },
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    event = "WinLeave",
+    opts = {},
+  },
   {
     "kevinhwang91/nvim-hlslens",
     config = function()
@@ -99,11 +99,17 @@ return {
       vim.g.barbar_auto_setup = false
     end,
     opts = {
-      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-      -- animation = true,
-      -- insert_at_start = true,
-      -- …etc.
+      highlight_inactive_file_icons = false,
+      highlight_visible = false,
+      highlight_alternate = false,
+
+      icons = {
+        preset = "default",
+      },
     },
     version = "^1.0.0", -- optional: only update when a new 1.x version is released
+  },
+  {
+    "tzachar/highlight-undo.nvim",
   },
 }
