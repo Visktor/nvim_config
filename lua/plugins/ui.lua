@@ -1,9 +1,9 @@
 return {
-  {
-    "nvim-zh/colorful-winsep.nvim",
-    event = "WinLeave",
-    opts = {},
-  },
+  -- {
+  --   "nvim-zh/colorful-winsep.nvim",
+  --   event = "WinLeave",
+  --   opts = {},
+  -- },
   {
     "kevinhwang91/nvim-hlslens",
     config = function()
@@ -68,7 +68,7 @@ return {
             "CursorMoved",
           })
         end,
-        performance_mode = false,
+        performance_mode = true,
       })
     end,
   },
@@ -82,10 +82,6 @@ return {
     "rmagatti/goto-preview",
     event = "BufEnter",
     config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
-  },
-  {
-    "aznhe21/actions-preview.nvim",
-    opts = {},
   },
   {
     "razak17/tailwind-fold.nvim",

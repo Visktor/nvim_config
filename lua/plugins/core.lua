@@ -36,7 +36,15 @@ return {
     optional = true,
     opts = {
       presets = { inc_rename = true },
-      level = "WARN",
+      routes = {
+        {
+          filter = {
+            event = "notify",
+            find = "No information available",
+          },
+          opts = { skip = true },
+        },
+      },
     },
   },
   {

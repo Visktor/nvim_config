@@ -4,7 +4,6 @@ local opts = { noremap = true, silent = true }
 
 --> Terminal
 map({ "n", "v", "i", "t" }, "<F4>", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle Terminal Float" })
-map({ "n", "v", "i", "t" }, "<F5>", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Toggle Terminal Horizontal" })
 
 --> Dial
 map({ "n" }, "+", "<C-a>")
@@ -21,7 +20,7 @@ map("n", "<M-Y>", [["+Y]])
 map({ "n", "v" }, "<M-d>", [["_d]])
 
 --> Util
-map({ "i", "n" }, "<C-c>", "<Esc>")
+map({ "i", "n", "x", "o" }, "<C-c>", "<Esc>")
 map({ "n" }, "<leader>n", "<cmd>nohlsearch<cr>", { desc = "Disable Highlighted Search" })
 map({ "n" }, "<leader>ce", "<cmd>EslintFixAll<cr>", { desc = "Eslint Fix" })
 
@@ -84,9 +83,6 @@ end, { desc = "Close All Previews" })
 map("n", "gpr", function()
   require("goto-preview").goto_preview_references({})
 end, { desc = "Preview References" })
-
---> Actions Preview
-map({ "v", "n" }, "<leader>cp", require("actions-preview").code_actions, { desc = "Preview Code Actions" })
 
 --> Obsidian
 map({ "n" }, "<leader>of", "<cmd>ObsidianFollowLink<CR>", { desc = "Obsidian Go to File" })

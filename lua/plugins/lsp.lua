@@ -1,19 +1,5 @@
 return {
   {
-    "nvimdev/lspsaga.nvim",
-    config = function()
-      require("lspsaga").setup({
-        ui = {
-          code_action = "",
-        },
-      })
-    end,
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
-  },
-  {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
       opts.diagnostics = vim.tbl_deep_extend("force", opts.diagnostics, {

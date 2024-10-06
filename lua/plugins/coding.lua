@@ -10,7 +10,7 @@ return {
     config = function()
       require("nvim-surround").setup({
         surrounds = {
-          ["A"] = {add = { "<", "/>" }},
+          ["A"] = { add = { "<", "/>" } },
           ["q"] = {
             add = { "'", "'" },
           },
@@ -34,8 +34,8 @@ return {
           },
         },
         keymaps = {
-          -- insert = "<C-g>s",
-          -- insert_line = "<C-g>S",
+          insert = "<C-g>s",
+          insert_line = "<C-g>S",
           normal = "S",
           normal_cur = "SS",
           normal_cur_line = "SSG",
@@ -92,7 +92,9 @@ return {
   {
     "dmmulroy/tsc.nvim",
     config = function()
-      require("tsc").setup({})
+      require("tsc").setup({
+        run_as_monorepo = true,
+      })
     end,
     lazy = false,
   },
