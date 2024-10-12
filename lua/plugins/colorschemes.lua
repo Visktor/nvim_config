@@ -30,12 +30,12 @@ return {
         colors.red = "#fa2f92"
         colors.green1 = "#6FDCE3"
         colors.orange = "#ff966c"
-        colors.yellow = "#C8FFE0"
+        colors.yellow = "#fca7ea"
         colors.green2 = "#41a6b5"
         colors.blue1 = "#30E3CA"
         colors.blue = "#86e1fc"
         colors.green = "#D2FF72"
-        colors.cyan = "#fca7ea"
+        colors.cyan = "#C8FFE0"
         --
         --   -- bg = "#222436",
         --   -- bg_dark = "#1e2030",

@@ -4,6 +4,8 @@ local opts = { noremap = true, silent = true }
 
 --> Terminal
 map({ "n", "v", "i", "t" }, "<F4>", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle Terminal Float" })
+map({ "v" }, "H", "{")
+map({ "v" }, "L", "}")
 
 --> Dial
 map({ "n" }, "+", "<C-a>")
