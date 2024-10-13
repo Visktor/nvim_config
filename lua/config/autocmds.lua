@@ -25,8 +25,11 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
   nested = true,
 })
+
 vim.api.nvim_create_autocmd("VimLeavePre", {
   callback = function()
-    resession.save(vim.fn.getcwd(), { dir = "dirsession", notify = false })
+    if vim.bo.modifiable == true then
+      resession.save(vim.fn.getcwd(), { dir = "dirsession", notify = false })
+    end
   end,
 })

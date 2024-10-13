@@ -130,12 +130,15 @@ map("n", "<leader>bsw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 map("n", "<leader>qs", function()
   require("resession").save()
 end, { desc = "Save Session" })
+
 map("n", "<leader>qa", function()
   require("resession").load()
 end, { desc = "List Sessions" })
+
 map("n", "<leader>ql", function()
-  require("resession").load("last")
+  require("resession").load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
 end, { desc = "Restore last" })
+
 map("n", "<leader>qd", function()
   require("resession").delete()
 end, { desc = "Delete Session" })
