@@ -50,6 +50,7 @@ return {
   },
   {
     "echasnovski/mini.ai",
+    event = "VeryLazy",
     opts = {
       n_lines = 2000,
       custom_textobjects = {
@@ -77,7 +78,7 @@ return {
           enabled = false,
         },
         search = {
-          enabled = true,
+          enabled = false,
         },
       },
     },
@@ -106,9 +107,4 @@ return {
     },
   },
   { "chentoast/marks.nvim", opts = {}, event = "BufRead" },
-  {
-    "ckolkey/ts-node-action",
-    dependencies = { "nvim-treesitter" },
-    opts = {},
-  },
 }

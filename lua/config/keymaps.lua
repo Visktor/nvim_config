@@ -4,8 +4,12 @@ local opts = { noremap = true, silent = true }
 
 --> Terminal
 map({ "n", "v", "i", "t" }, "<F4>", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle Terminal Float" })
-map({ "v" }, "H", "{")
-map({ "v" }, "L", "}")
+map({ "n", "v", "i", "t" }, "<F4>", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle Terminal Float" })
+map({ "n", "i" }, "<C-space>", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle Terminal Float" })
+unmap("t", "<C-l>")
+unmap("t", "<C-h>")
+unmap("t", "<C-k>")
+unmap("t", "<C-j>")
 
 --> Dial
 map({ "n" }, "+", "<C-a>")
@@ -14,6 +18,8 @@ map({ "n" }, "-", "<C-x>")
 --> Movement
 map({ "n" }, "<C-d>", "<C-d>zz")
 map({ "n" }, "<C-u>", "<C-u>zz")
+map({ "v", "o", "x" }, "H", "{")
+map({ "v", "o", "x" }, "L", "}")
 
 --> Registers
 map("x", "<M-p>", [["_dP]])

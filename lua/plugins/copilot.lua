@@ -44,6 +44,7 @@ return {
   -- },
   {
     "supermaven-inc/supermaven-nvim",
+    event = "InsertEnter",
     config = function()
       require("supermaven-nvim").setup({
         keymaps = {
@@ -51,7 +52,7 @@ return {
           clear_suggestion = "<M-x>",
           accept_word = "<M-b>",
         },
-        ignore_filetypes = { "md" },
+        ignore_filetypes = { "md", "markdown" },
         color = {
           suggestion_color = "#ffffff",
           cterm = 244,

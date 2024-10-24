@@ -5,27 +5,27 @@ return {
       colorscheme = "tokyonight",
     },
   },
-  { "ellisonleao/gruvbox.nvim" },
-  {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      require("kanagawa").setup({
-        theme = "wave",
-        transparent = true,
-        commentStyle = { italic = true },
-        functionStyle = { bold = true },
-        keywordStyle = { bold = true, italic = false },
-        undercurl = true,
-      })
-    end,
-  },
+  -- { "ellisonleao/gruvbox.nvim" },
+  -- {
+  --   "rebelot/kanagawa.nvim",
+  --   config = function()
+  --     require("kanagawa").setup({
+  --       theme = "wave",
+  --       transparent = true,
+  --       commentStyle = { italic = true },
+  --       functionStyle = { bold = true },
+  --       keywordStyle = { bold = true, italic = false },
+  --       undercurl = true,
+  --     })
+  --   end,
+  -- },
   {
     "folke/tokyonight.nvim",
     opts = {
       transparent = true,
       on_colors = function(colors)
         colors.bg_visual = "#6C77B5"
-        colors.comment = "#6C77B5"
+        colors.comment = "#444b87"
         colors.purple = "#F6FFA6"
         colors.red = "#fa2f92"
         colors.green1 = "#6FDCE3"
@@ -36,7 +36,6 @@ return {
         colors.blue = "#86e1fc"
         colors.green = "#D2FF72"
         colors.cyan = "#C8FFE0"
-        --
         --   -- bg = "#222436",
         --   -- bg_dark = "#1e2030",
         --   -- bg_float = "#1e2030",
@@ -122,5 +121,4 @@ return {
       },
     },
   },
-  { "sainnhe/gruvbox-material" },
 }
