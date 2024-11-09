@@ -107,4 +107,20 @@ return {
     },
   },
   { "chentoast/marks.nvim", opts = {}, event = "BufRead" },
+  {
+    "gbprod/yanky.nvim",
+    keys = {
+      { "gp", modes = { "n", "x" }, enabled = false },
+      { "gP", modes = { "n", "x" }, enabled = false },
+    },
+  },
+  {
+    "chrisgrieser/nvim-spider",
+    lazy = true,
+    keys = {
+      { "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n", "o", "x" } },
+      { "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n", "o", "x" } },
+      { "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n", "o", "x" } },
+    },
+  },
 }

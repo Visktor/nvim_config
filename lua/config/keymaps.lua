@@ -2,15 +2,6 @@ local map = vim.keymap.set
 local unmap = vim.keymap.del
 local opts = { noremap = true, silent = true }
 
---> Terminal
-map({ "n", "v", "i", "t" }, "<F4>", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle Terminal Float" })
-map({ "n", "v", "i", "t" }, "<F4>", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle Terminal Float" })
-map({ "n", "i" }, "<C-space>", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle Terminal Float" })
-unmap("t", "<C-l>")
-unmap("t", "<C-h>")
-unmap("t", "<C-k>")
-unmap("t", "<C-j>")
-
 --> Dial
 map({ "n" }, "+", "<C-a>")
 map({ "n" }, "-", "<C-x>")
@@ -59,44 +50,40 @@ map({ "o", "v" }, "aa", "a<")
 map({ "o", "v" }, "ia", "i<")
 map({ "o", "v" }, "aa", "a<")
 
---> Obsidian
-map("n", "<leader>o", "", { silent = true, desc = "Obsidian" })
-
---> Node Action
-map({ "n", "v" }, "<leader>ck", function()
-  require("ts-node-action").node_action()
-end, { silent = true, desc = "Quick Refactor" })
-
 --> Goto Preview
 --Can't figure out why the which key description is not working
 --Unmapping the key didn't work either
-unmap({ "n", "v" }, "gP")
-unmap({ "n", "v" }, "gp")
-map("n", "gp", "", { desc = "Goto Preview", silent = true })
-map("n", "gpd", function()
+map("n", "gl", "", { desc = "Goto Preview", silent = true })
+map("n", "gld", function()
   require("goto-preview").goto_preview_definition({})
 end, { desc = "Preview Definition" })
-map("n", "gpt", function()
+map("n", "glt", function()
   require("goto-preview").goto_preview_type_definition({})
 end, { desc = "Preview Type " })
-map("n", "gpi", function()
+map("n", "gli", function()
   require("goto-preview").goto_preview_implementation({})
 end, { desc = "Preview Implementation" })
-map("n", "gpD", function()
+map("n", "glD", function()
   require("goto-preview").goto_preview_declaration({})
 end, { desc = "Preview Declaration" })
-map("n", "gpp", function()
+map("n", "glp", function()
   require("goto-preview").close_all_win({})
 end, { desc = "Close All Previews" })
-map("n", "gpr", function()
+map("n", "glr", function()
   require("goto-preview").goto_preview_references({})
 end, { desc = "Preview References" })
 
 --> Obsidian
+map("n", "<leader>o", "", { silent = true, desc = "Obsidian" })
+map({ "n" }, "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Obsidian Create New Note" })
 map({ "n" }, "<leader>of", "<cmd>ObsidianFollowLink<CR>", { desc = "Obsidian Go to File" })
-map({ "n" }, "<leader>or", "<cmd>RenderMarkdown toggle<CR>", { desc = "Obsidian Render Markdown" })
 map({ "n" }, "<leader>oe", "<cmd>ObsidianExtractNote<CR>", { desc = "Obsidian Extract to Note" })
 map({ "n" }, "<leader>od", "<cmd>ObsidianToday<CR>", { desc = "Obsidian Create Daily Note" })
+map({ "n" }, "<leader>oD", "<cmd>ObsidianDailies<CR>", { desc = "Obsidian Daily List" })
+map({ "n" }, "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Obsidian Backlinks" })
+map({ "n" }, "<leader>oT", "<cmd>ObsidianTemplate<CR>", { desc = "Obsidian New Template" })
+map({ "n" }, "<leader>or", "<cmd>ObsidianRename<CR>", { desc = "Obsidian Rename" })
+map({ "n" }, "<leader>ot", "<cmd>ObsidianNewFromTemplate<CR>", { desc = "Obsidian New Note from Template" })
 
 --> TSC
 map({ "n" }, "<leader>cT", "<cmd>TSC<CR>", { desc = "Run TSC on Project" })

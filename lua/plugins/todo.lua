@@ -1,13 +1,12 @@
--- NOTE
 return {
   "folke/todo-comments.nvim",
   cmd = { "TodoTrouble", "TodoTelescope" },
   event = "LazyFile",
   opts = {
     highlight = {
-      keyword = "wide",
+      keyword = "wide_bg",
       after = "fg",
-      pattern = [[.*<(KEYWORDS)\s*]], -- pattern or table of patterns, used for highlighting (vim regex)
+      pattern = [[.*#<(KEYWORDS)\s*]], -- pattern or table of patterns, used for highlighting (vim regex)
     },
     keywords = {
       FIX = {
@@ -33,7 +32,7 @@ return {
       test = { "Identifier", "#FF00FF" },
     },
     search = {
-      pattern = [[\b(KEYWORDS)]],
+      pattern = [[#\b(KEYWORDS)]],
     },
   },
   -- stylua: ignore

@@ -50,7 +50,6 @@ return {
 
           -- [other hooks]
         },
-
         -- [other options]
       })
     end,

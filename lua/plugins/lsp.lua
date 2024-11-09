@@ -20,6 +20,8 @@ return {
       })
       return opts
     end,
+
+    init = function()
+    end,
   },
 }
-

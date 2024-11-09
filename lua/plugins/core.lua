@@ -81,7 +81,7 @@ return {
       },
     },
   },
-  { "akinsho/toggleterm.nvim", version = "*", config = true },
+  -- { "akinsho/toggleterm.nvim", version = "*", config = true },
   {
     "folke/noice.nvim",
     optional = true,
@@ -105,5 +105,36 @@ return {
   {
     "folke/persistence.nvim",
     enabled = false,
+  },
+  {
+    "MagicDuck/grug-far.nvim",
+    keys = {
+      {
+        "<leader>S",
+        function()
+          local grug = require("grug-far")
+          local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+          grug.open({
+            transient = true,
+            prefills = {
+              filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+            },
+          })
+        end,
+        mode = { "n", "v" },
+        desc = "Search and Replace",
+      },
+    },
+  },
+  {
+    "folke/snacks.nvim",
+    lazy = false,
+    opts = {
+      terminal = {
+        win = {
+          style = "float",
+        },
+      },
+    },
   },
 }

@@ -2,16 +2,29 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "tokyonight-storm",
     },
   },
+  -- {
+  --   "neanias/everforest-nvim",
+  --   version = false,
+  --   lazy = false,
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   -- Optional; default configuration will be used if setup isn't called.
+  --   config = function()
+  --     require("everforest").setup({
+  --       background = "hard",
+  --       mode = "light",
+  --     })
+  --   end,
+  -- },
   -- { "ellisonleao/gruvbox.nvim" },
   -- {
   --   "rebelot/kanagawa.nvim",
   --   config = function()
   --     require("kanagawa").setup({
   --       theme = "wave",
-  --       transparent = true,
+  --       -- transparent = true,
   --       commentStyle = { italic = true },
   --       functionStyle = { bold = true },
   --       keywordStyle = { bold = true, italic = false },
@@ -22,20 +35,20 @@ return {
   {
     "folke/tokyonight.nvim",
     opts = {
-      transparent = true,
+      transparent = false,
       on_colors = function(colors)
-        colors.bg_visual = "#6C77B5"
-        colors.comment = "#444b87"
-        colors.purple = "#F6FFA6"
+        -- colors.bg_visual = "#6C77B5"
+        -- colors.comment = "#444b87"
+        -- colors.purple = "#F6FFA6"
         colors.red = "#fa2f92"
-        colors.green1 = "#6FDCE3"
-        colors.orange = "#ff966c"
-        colors.yellow = "#fca7ea"
-        colors.green2 = "#41a6b5"
-        colors.blue1 = "#30E3CA"
-        colors.blue = "#86e1fc"
-        colors.green = "#D2FF72"
-        colors.cyan = "#C8FFE0"
+        -- colors.green1 = "#6FDCE3"
+        -- colors.orange = "#ff966c"
+        colors.yellow = "#F6FFA6"
+        -- colors.green2 = "#41a6b5"
+        -- colors.blue1 = "#30E3CA"
+        colors.blue = "#fca7ea"
+        -- colors.green = "#D2FF72"
+        -- colors.cyan = "#C8FFE0"
         --   -- bg = "#222436",
         --   -- bg_dark = "#1e2030",
         --   -- bg_float = "#1e2030",
