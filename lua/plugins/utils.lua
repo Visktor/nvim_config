@@ -81,7 +81,7 @@ return {
         -- this is required, since the default filter skips nobuflisted buffers
         return true
       end,
-      extensions = { scope = {} }, -- add scope.nvim extension
+      extensions = { scope = {}, quickfix = {}, aerial = {} }, -- add scope.nvim extension
     },
   },
   {

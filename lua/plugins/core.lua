@@ -6,6 +6,9 @@ return {
       local types = require("cmp.types")
       local compare = require("cmp.config.compare")
 
+      -- #TODO use this to change the formatting of the completion menu
+      -- opts.formatting = {}
+
       ---@type table<integer, integer>
       local modified_priority = {
         [types.lsp.CompletionItemKind.Variable] = types.lsp.CompletionItemKind.Method,

@@ -37,8 +37,14 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 vim.o.termguicolors = true
 
-vim.opt.sessionoptions = {
-  "blank,buffers,sesdir,folds,help,tabpages,winsize,terminal,globals",
+vim.opt.sessionoptions = { -- required
+  "buffers",
+  "sesdir",
+  "tabpages",
+  "globals",
+  "winsize",
+  "folds",
+  "terminal",
 }
 
 vim.g.omni_sql_no_default_maps = 1
