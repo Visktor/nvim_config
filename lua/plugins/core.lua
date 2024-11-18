@@ -1,13 +1,25 @@
 return {
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      { "onsails/lspkind.nvim" },
+    },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local types = require("cmp.types")
       local compare = require("cmp.config.compare")
 
-      -- #TODO use this to change the formatting of the completion menu
-      -- opts.formatting = {}
+      local lspkind = require("lspkind")
+
+      opts.formatting = vim.tbl_deep_extend("force", opts.formatting, {
+        format = lspkind.cmp_format({
+          mode = "symbol", -- show only symbol annotations
+          maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+          ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+          show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+          symbol_map = { Supermaven = "" },
+        }),
+      })
 
       ---@type table<integer, integer>
       local modified_priority = {
@@ -84,23 +96,6 @@ return {
       },
     },
   },
-  -- { "akinsho/toggleterm.nvim", version = "*", config = true },
-  {
-    "folke/noice.nvim",
-    optional = true,
-    opts = {
-      presets = { inc_rename = true },
-      routes = {
-        {
-          filter = {
-            event = "notify",
-            find = "No information available",
-          },
-          opts = { skip = true },
-        },
-      },
-    },
-  },
   {
     "akinsho/bufferline.nvim",
     enabled = false,
@@ -138,6 +133,40 @@ return {
           style = "float",
         },
       },
+    },
+  },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "S", mode = { "n", "o", "t", "i", "s", "x" }, false },
+      { "s", mode = { "n", "o" }, false },
+    },
+    opts = {
+      modes = {
+        treesitter_search = {
+          enabled = false,
+        },
+        remote = {
+          enabled = false,
+        },
+        treesitter = {
+          enabled = false,
+        },
+        search = {
+          enabled = false,
+        },
+      },
+    },
+  },
+  {
+    "monaqa/dial.nvim",
+    lazy = false,
+    keys = {
+      { "+", "<C-a>", mode = { "n", "v" } },
+      { "-", "<C-x>", mode = { "n", "v" } },
+      { "g+", "g<C-a>", mode = { "n", "v" } },
+      { "g-", "g<C-x>", mode = { "n", "v" } },
     },
   },
 }

@@ -15,24 +15,7 @@ return {
     },
     cmd = { "SudaRead", "SudaWrite" },
   },
-  -- {
-  --     "sindrets/diffview.nvim"
-  -- }
   { "kevinhwang91/nvim-bqf" },
-  {
-    "sustech-data/wildfire.nvim",
-    event = "VeryLazy",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      require("wildfire").setup({
-        keymaps = {
-          init_selection = "<CR>",
-          node_incremental = "<CR>",
-          node_decremental = "<leader><CR>",
-        },
-      })
-    end,
-  },
   {
     "tiagovla/scope.nvim",
     config = function()
@@ -99,6 +82,10 @@ return {
         addBreakPoint = "<leader>|",
       },
     },
+  },
+  {
+    "LintaoAmons/scratch.nvim",
+    event = "VeryLazy",
   },
 }
 --

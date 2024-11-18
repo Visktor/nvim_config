@@ -1,9 +1,5 @@
 return {
   {
-    "mg979/vim-visual-multi",
-    lazy = false,
-  },
-  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
@@ -60,37 +56,6 @@ return {
     },
   },
   {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    keys = {
-      { "S", mode = { "n", "o", "t", "i", "s", "x" }, false },
-      { "s", mode = { "n", "o" }, false },
-    },
-    opts = {
-      modes = {
-        treesitter_search = {
-          enabled = false,
-        },
-        remote = {
-          enabled = false,
-        },
-        treesitter = {
-          enabled = false,
-        },
-        search = {
-          enabled = false,
-        },
-      },
-    },
-  },
-  {
-    "smoka7/hop.nvim",
-    version = "*",
-    opts = {
-      keys = "etovxqpdygfblzhckisuran",
-    },
-  },
-  {
     "dmmulroy/tsc.nvim",
     config = function()
       require("tsc").setup({
@@ -107,13 +72,6 @@ return {
     },
   },
   { "chentoast/marks.nvim", opts = {}, event = "BufRead" },
-  {
-    "gbprod/yanky.nvim",
-    keys = {
-      { "gp", modes = { "n", "x" }, enabled = false },
-      { "gP", modes = { "n", "x" }, enabled = false },
-    },
-  },
   -- {
   --   "chrisgrieser/nvim-spider",
   --   lazy = true,

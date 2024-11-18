@@ -1,10 +1,6 @@
 local map = vim.keymap.set
-local unmap = vim.keymap.del
+-- local unmap = vim.keymap.del
 local opts = { noremap = true, silent = true }
-
---> Dial
-map({ "n" }, "+", "<C-a>")
-map({ "n" }, "-", "<C-x>")
 
 --> Movement
 map({ "n" }, "<C-d>", "<C-d>zz")
@@ -19,7 +15,7 @@ map("n", "<M-Y>", [["+Y]])
 map({ "n", "v" }, "<M-d>", [["_d]])
 
 --> Util
-map({ "i", "n", "x", "o" }, "<C-c>", "<Esc>")
+map({ "i", "n", "x", "o" }, "<C-c>", "<Esc>", { remap = true })
 map({ "n" }, "<leader>n", "<cmd>nohlsearch<cr>", { desc = "Disable Highlighted Search" })
 map({ "n" }, "<leader>ce", "<cmd>EslintFixAll<cr>", { desc = "Eslint Fix" })
 
@@ -119,6 +115,14 @@ map("n", "<leader>bsd", "<Cmd>BufferOrderByDirectory<CR>", opts)
 map("n", "<leader>bsl", "<Cmd>BufferOrderByLanguage<CR>", opts)
 map("n", "<leader>bsw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 
+--> Diff
+map("n", "<leader>gd", "", { desc = "DiffView" })
+map("n", "<leader>gdd", "<cmd>DiffviewOpen<CR>", { desc = "DiffView Open" })
+map("n", "<leader>gdc", "<cmd>DiffviewClose<CR>", { desc = "DiffView Close" })
+map("n", "<leader>gdf", "<cmd>DiffviewToggleFiles<CR>", { desc = "DiffView Toggle File Panel" })
+map("n", "<leader>gde", "<cmd>DiffviewFocusFiles<CR>", { desc = "DiffView Focus File Panel" })
+map("n", "<leader>gdr", "<cmd>DiffviewRefresh<CR>", { desc = "DiffView Refresh" })
+
 --> Sessions
 map("n", "<leader>qs", function()
   require("resession").save()
@@ -135,3 +139,9 @@ end, { desc = "Restore last" })
 map("n", "<leader>qd", function()
   require("resession").delete()
 end, { desc = "Delete Session" })
+
+--> Files
+map("n", "<leader>Ns", "<cmd>Scratch<CR>", { desc = "Create new scratch file" })
+map("n", "<leader>No", "<cmd>ScratchOpen<CR>", { desc = "Open scratch file" })
+map("n", "<leader>Nf", "<cmd>ScratchFzf<CR>", { desc = "Open scratch search" })
+map("n", "<leader>NN", "<cmd>ScratchWithName<CR>", { desc = "Open scratch named file" })
