@@ -103,11 +103,14 @@ map("n", "<leader>br", "<Cmd>BufferRestore<CR>", opts)
 map("n", "<leader>bp", "<Cmd>BufferPin<CR>", opts)
 map("n", "<leader>bgp", "<cmd>BufferGotoPinned<CR>", opts)
 map("n", "<leader>bgP", "<cmd>BufferGotoUnpinned<CR>", opts)
+
 map("n", "<leader>bd", "<Cmd>BufferClose<CR>", opts)
-map("n", "<leader>bo", "<Cmd>BufferCloseAllButCurrent<CR>", { desc = "Close Other Buffers" })
-map("n", "<leader>bP", "<Cmd>BufferCloseAllButPinned<CR>", { desc = "Close All Unpinned" })
-map("n", "<leader>bL", "<Cmd>BufferCloseBuffersLeft<CR>", { desc = "Close Buffers To The Left" })
-map("n", "<leader>bR", "<Cmd>BufferCloseBuffersRight<CR>", { desc = "Close Buffers To The Right" })
+map("n", "<leader>bco", "<Cmd>BufferCloseAllButCurrent<CR>", { desc = "Close Other Buffers" })
+map("n", "<leader>bcp", "<Cmd>BufferCloseAllButPinned<CR>", { desc = "Close All Unpinned" })
+map("n", "<leader>bcl", "<Cmd>BufferCloseBuffersLeft<CR>", { desc = "Close Buffers To The Left" })
+map("n", "<leader>bcr", "<Cmd>BufferCloseBuffersRight<CR>", { desc = "Close Buffers To The Right" })
+map("n", "<leader>bcv", "<Cmd>BufferCloseAllButVisible<CR>", { desc = "Close All But Visible" })
+
 map("n", "<leader>bM", "<Cmd>BufferPick<CR>", opts)
 map("n", "<leader>bsn", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
 map("n", "<leader>bsN", "<Cmd>BufferOrderByName<CR>", opts)
@@ -140,8 +143,56 @@ map("n", "<leader>qd", function()
   require("resession").delete()
 end, { desc = "Delete Session" })
 
+--> Search and Replace
+map({ "n", "v" }, "<leader>r", "", { desc = "󰍉 Search and Replace" })
+map({ "n", "v" }, "<leader>rr", function()
+  local grug = require("grug-far")
+  local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+  grug.open({
+    transient = true,
+    prefills = {
+      filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+    },
+  })
+end, { desc = "󰍉 Files of same extension" })
+map({ "n", "v" }, "<leader>rf", function()
+  require("grug-far").open({ transient = true, prefills = { paths = vim.fn.expand("%") } })
+end, { desc = "󰍉 Current File" })
+map({ "n", "v" }, "<leader>rw", function()
+  require("grug-far").open({ transient = true, prefills = { search = vim.fn.expand("<cword>") } })
+end, { desc = "󰍉 Selected Word" })
+map({ "n", "v" }, "<leader>rt", function()
+  require("grug-far").open({
+    transient = true,
+    prefills = {
+      filesFilter = "!*{test,spec,types,mocks,stories,styled,dto}*",
+    },
+  })
+end, { desc = "󰍉 Code Files" })
+
 --> Files
+map("n", "<leader>N", "", { desc = "New File" })
 map("n", "<leader>Ns", "<cmd>Scratch<CR>", { desc = "Create new scratch file" })
 map("n", "<leader>No", "<cmd>ScratchOpen<CR>", { desc = "Open scratch file" })
 map("n", "<leader>Nf", "<cmd>ScratchFzf<CR>", { desc = "Open scratch search" })
 map("n", "<leader>NN", "<cmd>ScratchWithName<CR>", { desc = "Open scratch named file" })
+
+--> Chat and Copilot
+map({ "n", "v" }, "<leader>a", "", { desc = "AI - " })
+map({ "n", "v" }, "<leader>aa", function()
+  return require("CopilotChat").toggle()
+end, { desc = " Toggle" })
+map({ "n", "v" }, "<leader>ax", function()
+  return require("CopilotChat").reset()
+end, { desc = " Clear" })
+map({ "n", "v" }, "<leader>ap", "<cmd>CopilotChatCommit<CR>", { desc = " Create Commit Message" })
+map({ "n", "v" }, "<leader>ac", "<cmd>CopilotChatDocs<CR>", { desc = " Create Documentation" })
+map({ "n", "v" }, "<leader>ae", "<cmd>CopilotChatExplain<CR>", { desc = " Explain Code" })
+map({ "n", "v" }, "<leader>ar", "<cmd>CopilotChatReview<CR>", { desc = " Review Code" })
+map({ "n", "v" }, "<leader>at", "<cmd>CopilotChatTests<CR>", { desc = " Create Tests" })
+map({ "n", "v" }, "<leader>aq", function()
+  local input = vim.fn.input("Quick Chat: ")
+  if input ~= "" then
+    require("CopilotChat").ask(input)
+  end
+end, { desc = " Quick Chat" })

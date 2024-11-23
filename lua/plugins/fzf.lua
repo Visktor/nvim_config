@@ -1,6 +1,10 @@
 return {
   "ibhagwan/fzf-lua",
   cmd = "FzfLua",
+  keys = {
+    { "<leader>sr", "<cmd>FzfLua resume<cr>", desc = "Resume Last Search" },
+    { "<leader>sR", false }
+  },
   opts = function(_, opts)
     return opts
     -- return vim.tbl_deep_extend("force", opts, {

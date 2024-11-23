@@ -40,10 +40,10 @@ return {
         ["Find Subword Under"] = "<C-n>",
         -- ["Start Regex Search"] = "<C-Do wn>",
         ["Add Cursor At Pos"] = "<C-\\>",
-
+ 
         -- ["Visual Regex"] = "\\A",
         ["Visual Add"] = "\\f",
-        ["Visual Cursors"] = "<M-b>", -- select some text firstly , then <M-b>
+        -- ["Visual Cursors"] = "<M-b>", -- select some text firstly , then <M-b>
 
         ["Add Cursor Up"] = "<S-Up>",
         ["Add Cursor Down"] = "<S-Down>",
@@ -84,7 +84,7 @@ return {
         ["Remove Last Region"] = "\\q",
         ["Visual Subtract"] = "\\s",
         ["Case Conversion  Menu"] = "\\C",
-
+ 
         ["Run Normal"] = "\\z",
         ["Run Last  Normal"] = "\\Z",
         ["Run Visual"] = "\\v",
@@ -94,15 +94,15 @@ return {
         ["Run Macro"] = "\\@",
         ["Align Char"] = "\\<",
         ["Align Regex"] = "\\>",
-        ["Numbers"] = "\\n",
-        ["Numbers Append"] = "\\N",
+        ["Numbers"] = "\\nu",
+        ["Numbers Append"] = "\\na",
         ["Zero Numbers"] = "\\0n",
         ["Zero Numbers Append"] = "\\0N",
         ["Shrink"] = "\\-",
         ["Enlarge"] = "\\+",
 
         ["Toggle Block"] = "\\<BS>",
-        ["Toggle Single Region"] = "\\n",
+        ["Toggle Single Region"] = "\\\\",
         ["Toggle Multiline"] = "\\M",
 
         -- ["Duplicate"] = "<C-q>d",

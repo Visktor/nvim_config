@@ -1,47 +1,38 @@
 return {
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   event = "InsertEnter",
-  --   opts = {
-  --     panel = { enabled = false },
-  --     suggestion = {
-  --       auto_trigger = true,
-  --       keymap = {
-  --         accept = "<M-b>",
-  --         accept_line = "<M-c>",
-  --         accept_word = "<M-w>",
-  --         next = "<M-]>",
-  --         prev = "<M-[>",
-  --         dismiss = "<M-x>",
-  --       },
-  --     },
-  --     filetypes = { markdown = false },
-  --   },
-  --   config = function(_, opts)
-  --     local cmp = require("cmp")
-  --     local luasnip = require("luasnip")
-  --
-  --     require("copilot").setup(opts)
-  --
-  --     local function set_trigger(trigger)
-  --       vim.b.copilot_suggestion_auto_trigger = trigger
-  --       vim.b.copilot_suggestion_hidden = not trigger
-  --     end
-  --
-  --     cmp.event:on("menu_closed", function()
-  --       set_trigger(not luasnip.expand_or_locally_jumpable())
-  --     end)
-  --     vim.api.nvim_create_autocmd("User", {
-  --       pattern = { "LuasnipInsertNodeEnter", "LuasnipInsertNodeLeave" },
-  --       callback = function()
-  --         set_trigger(not luasnip.expand_or_locally_jumpable())
-  --       end,
-  --     })
-  --
-  --     return opts
-  --   end,
-  -- },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    dependencies = {
+      {
+        "zbirenbaum/copilot.lua",
+        opts = {
+          enabled = false,
+        },
+        config = function()
+          require("copilot").setup({
+            enabled = false,
+          })
+        end,
+      },
+      { "nvim-lua/plenary.nvim" },
+    },
+    build = "make tiktoken", -- Only on MacOS or Linux
+    opts = {
+      auto_insert_mode = true,
+      question_header = "  " .. "Visktor" .. " ",
+      answer_header = "  Copilot ",
+      window = {
+        width = 0.4,
+      },
+      mappings = {
+        submit_prompt = {
+          normal = "<Leader>s",
+          insert = "<C-s>",
+        },
+      },
+    },
+    -- See Commands section for default commands if you want to lazy load on them
+  },
   {
     "supermaven-inc/supermaven-nvim",
     event = "InsertEnter",
