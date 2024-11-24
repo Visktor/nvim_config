@@ -1,6 +1,26 @@
 -- Until i figure out why the fuck the vim.opt.guicursor is not working.
 
-vim.api.nvim_create_autocmd("BufRead", {
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+local save_fold = augroup("Persistent Folds", { clear = true })
+
+autocmd("BufWinLeave", {
+  pattern = "*.*",
+  callback = function()
+    vim.cmd.mkview()
+  end,
+  group = save_fold,
+})
+
+autocmd("BufWinEnter", {
+  pattern = "*.*",
+  callback = function()
+    vim.cmd.loadview({ mods = { emsg_silent = true } })
+  end,
+  group = save_fold,
+})
+
+autocmd("BufRead", {
 
   callback = function()
     vim.cmd('set guicursor=""')
@@ -9,13 +29,13 @@ vim.api.nvim_create_autocmd("BufRead", {
 
 local resession = require("resession")
 
-vim.api.nvim_create_autocmd("VimLeavePre", {
+autocmd("VimLeavePre", {
   callback = function()
     resession.save("last")
   end,
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
+autocmd("VimEnter", {
   callback = function()
     -- Only load the session if nvim was started with no args
     if vim.fn.argc(-1) == 0 then
@@ -26,7 +46,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
   nested = true,
 })
 
-vim.api.nvim_create_autocmd("VimLeavePre", {
+autocmd("VimLeavePre", {
   callback = function()
     if vim.bo.modifiable == true then
       resession.save(vim.fn.getcwd(), { dir = "dirsession", notify = false })

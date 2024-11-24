@@ -9,25 +9,27 @@ map({ "v", "o", "x" }, "H", "{")
 map({ "v", "o", "x" }, "L", "}")
 
 --> Registers
-map("x", "<M-p>", [["_dP]])
+map({ "x", "v" }, "<M-p>", [["_dP]])
 map({ "n", "v" }, "<M-y>", [["+y]])
 map("n", "<M-Y>", [["+Y]])
 map({ "n", "v" }, "<M-d>", [["_d]])
 
 --> Util
 map({ "i", "n", "x", "o" }, "<C-c>", "<Esc>", { remap = true })
-map({ "n" }, "<leader>n", "<cmd>nohlsearch<cr>", { desc = "Disable Highlighted Search" })
 map({ "n" }, "<leader>ce", "<cmd>EslintFixAll<cr>", { desc = "Eslint Fix" })
+map("n", "<leader>gg", function()
+  require("snacks").terminal("lazygit", {
+    interactive = true,
+    win = {
+      relative = "editor",
+      width = 0,
+      height = 0,
+    },
+  })
+end, { desc = "Lazygit (cwd)" })
 
 --> Insert
 map({ "i" }, "<C-l>", "<DEL>")
-map({ "i" }, "<C-z>", "<C-o>u")
-
---> Windows
-map("n", "<leader><left>", ":vertical resize +15<cr>")
-map("n", "<leader><right>", ":vertical resize -15<cr>")
-map("n", "<leader><up>", ":resize +10<cr>")
-map("n", "<leader><down>", ":resize -10<cr>")
 
 --> Telescope
 map({ "n" }, "<leader>fD", "", { desc = "Find in Directory" })
