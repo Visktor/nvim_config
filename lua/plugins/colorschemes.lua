@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-storm",
+      colorscheme = "tokyonight-moon",
     },
   },
   -- {
@@ -94,11 +94,11 @@ return {
         --   -- green2 = "#41a6b5",
         --   -- hint = "#4fd6be",
         --   -- info = "#0db9d7",
-        --   -- magenta = "#c099ff",
+        --   -- magenta = "#fca7ea",
         --   -- magenta2 = "#ff007c",
         --   -- none = "NONE",
         --   -- orange = "#ff966c",
-        --   -- purple = "#fca7ea",
+        colors.purple = "#c099ff"
         --   -- rainbow = { "#82aaff", "#ffc777", "#c3e88d", "#4fd6be", "#c099ff", "#ffa2aa" },
         --   -- red = "#ff757f",
         --   -- red1 = "#c53b53",
