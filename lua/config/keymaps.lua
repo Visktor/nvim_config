@@ -1,5 +1,4 @@
 local map = vim.keymap.set
--- local unmap = vim.keymap.del
 local opts = { noremap = true, silent = true }
 
 --> Movement
@@ -27,6 +26,7 @@ map("n", "<leader>gg", function()
     },
   })
 end, { desc = "Lazygit (cwd)" })
+map("n", "dB", "dBx")
 
 --> Insert
 map({ "i" }, "<C-l>", "<DEL>")
@@ -146,7 +146,7 @@ map("n", "<leader>qd", function()
 end, { desc = "Delete Session" })
 
 --> Search and Replace
-map({ "n", "v" }, "<leader>r", "", { desc = "󰍉 Search and Replace" })
+map({ "n", "v" }, "<leader>r", "", { desc = "Search and Replace" })
 map({ "n", "v" }, "<leader>rr", function()
   local grug = require("grug-far")
   local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
@@ -156,13 +156,13 @@ map({ "n", "v" }, "<leader>rr", function()
       filesFilter = ext and ext ~= "" and "*." .. ext or nil,
     },
   })
-end, { desc = "󰍉 Files of same extension" })
+end, { desc = "Files of same extension" })
 map({ "n", "v" }, "<leader>rf", function()
   require("grug-far").open({ transient = true, prefills = { paths = vim.fn.expand("%") } })
-end, { desc = "󰍉 Current File" })
+end, { desc = "Current File" })
 map({ "n", "v" }, "<leader>rw", function()
   require("grug-far").open({ transient = true, prefills = { search = vim.fn.expand("<cword>") } })
-end, { desc = "󰍉 Selected Word" })
+end, { desc = "Selected Word" })
 map({ "n", "v" }, "<leader>rt", function()
   require("grug-far").open({
     transient = true,
@@ -170,7 +170,7 @@ map({ "n", "v" }, "<leader>rt", function()
       filesFilter = "!*{test,spec,types,mocks,stories,styled,dto}*",
     },
   })
-end, { desc = "󰍉 Code Files" })
+end, { desc = "Code Files" })
 
 --> Files
 map("n", "<leader>N", "", { desc = "New File" })
@@ -198,3 +198,5 @@ map({ "n", "v" }, "<leader>aq", function()
     require("CopilotChat").ask(input)
   end
 end, { desc = " Quick Chat" })
+
+map({ "n" }, "m", "", { desc = "Mark" })

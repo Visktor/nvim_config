@@ -86,6 +86,9 @@ return {
   {
     "LintaoAmons/scratch.nvim",
     event = "VeryLazy",
+    opts = {
+      filetypes = { "js", "ts", "tsx" },
+    },
   },
 }
 --

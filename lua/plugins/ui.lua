@@ -1,10 +1,5 @@
 return {
   {
-    "nvim-zh/colorful-winsep.nvim",
-    event = "WinLeave",
-    opts = {},
-  },
-  {
     "kevinhwang91/nvim-hlslens",
     config = function()
       local hlslens = require("hlslens")
@@ -51,11 +46,11 @@ return {
     config = function()
       require("neoscroll").setup({
         mappings = { "<C-y>", "<C-e>", "zt", "zz", "zb" },
+        easing = "linear",
         hide_cursor = false, -- Hide cursor while scrolling
         stop_eof = true, -- Stop at <EOF> when scrolling downwards
         respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
         cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-        easing_function = nil, -- Default easing function
         pre_hook = function()
           vim.opt.eventignore:append({
             "WinScrolled",

@@ -1,8 +1,31 @@
--- Until i figure out why the fuck the vim.opt.guicursor is not working.
-
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 local save_fold = augroup("Persistent Folds", { clear = true })
+
+autocmd("RecordingEnter", {
+  callback = function()
+    require("lualine").refresh()
+  end,
+})
+
+autocmd("RecordingLeave", {
+  callback = function()
+    -- This is going to seem really weird!
+    -- Instead of just calling refresh we need to wait a moment because of the nature of
+    -- `vim.fn.reg_recording`. If we tell lualine to refresh right now it actually will
+    -- still show a recording occuring because `vim.fn.reg_recording` hasn't emptied yet.
+    -- So what we need to do is wait a tiny amount of time (in this instance 50 ms) to
+    -- ensure `vim.fn.reg_recording` is purged before asking lualine to refresh.
+    local timer = vim.uv.new_timer()
+    timer:start(
+      50,
+      0,
+      vim.schedule_wrap(function()
+        require("lualine").refresh()
+      end)
+    )
+  end,
+})
 
 autocmd("BufWinLeave", {
   pattern = "*.*",

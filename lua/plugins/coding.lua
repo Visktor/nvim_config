@@ -71,7 +71,24 @@ return {
       { "<leader>cu", "<cmd>lua require('undotree').toggle()<cr>", desc = "Undo Tree" },
     },
   },
-  { "chentoast/marks.nvim", opts = {}, event = "BufRead" },
+  {
+    "chentoast/marks.nvim",
+    event = "VeryLazy",
+    opts = {
+      default_mappings = false,
+      mappings = {
+        set = "M",
+        toggle = "mm",
+        set_next = "mn",
+        next = "<M-m>",
+        prev = false,
+        preview = "m:",
+        delete = "mD",
+        delete_buf = "md.",
+        delete_line = "md-",
+      },
+    },
+  },
   {
     "chrisgrieser/nvim-spider",
     lazy = true,

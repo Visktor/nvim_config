@@ -48,7 +48,7 @@ return {
         ["Add Cursor Up"] = "<S-Up>",
         ["Add Cursor Down"] = "<S-Down>",
         -- ["Start Regex Search"] = "<C-q>/",
-        ["Visual All"] = "\\A", --  1. selected some text in visual mode 2. press <C-q>j to select all
+        ["Visual All"] = "\\a", --  1. selected some text in visual mode 2. press <C-q>j to select all
         -- ["Select Cursor Down"] = "<M-C-Down>",
         -- ["Select Cursor Up"] = "<M-C-Up>",
 
@@ -76,7 +76,7 @@ return {
         ["Case Setting"] = "\\c",
         ["Toggle Whole  Word"] = "\\w",
         ["Transpose"] = "\\t",
-        ["Align"] = "\\a",
+        ["Align"] = "\\A",
         ["Duplicate"] = "\\d",
         ["Rewrite Last  Search"] = "\\r",
         ["Merge Regions"] = "\\m",
