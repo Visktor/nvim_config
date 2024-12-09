@@ -20,6 +20,18 @@ map("n", "<leader>gg", function()
   require("snacks").terminal("lazygit", {
     interactive = true,
     win = {
+      keys = {
+        term_normal = {
+          "<C-c>",
+          function()
+            local keys = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
+            vim.api.nvim_feedkeys(keys, "t", false)
+          end,
+          silent = true,
+          expr = true,
+          mode = "t",
+        },
+      },
       relative = "editor",
       width = 0,
       height = 0,
