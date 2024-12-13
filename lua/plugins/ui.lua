@@ -51,6 +51,7 @@ return {
         stop_eof = true, -- Stop at <EOF> when scrolling downwards
         respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
         cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+        duration_multiplier = 0.8,
         pre_hook = function()
           vim.opt.eventignore:append({
             "WinScrolled",
