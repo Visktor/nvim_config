@@ -77,15 +77,15 @@ return {
     opts = {
       default_mappings = false,
       mappings = {
-        set = "M",
+        set = "m.",
         toggle = "mm",
         set_next = "mn",
         next = "<M-m>",
         prev = false,
         preview = "m:",
-        delete = "mD",
-        delete_buf = "md.",
-        delete_line = "md-",
+        delete = "MM",
+        delete_buf = "MB",
+        delete_line = "ML",
       },
     },
   },
@@ -104,6 +104,6 @@ return {
   {
     "chrisgrieser/nvim-various-textobjs",
     event = "VeryLazy",
-    opts = { useDefaultKeymaps = true },
+    opts = { useDefaults = true },
   },
 }

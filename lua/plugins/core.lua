@@ -85,7 +85,7 @@ return {
       },
     },
     keys = {
-      { "<leader>z", "<cmd>Neotree reveal<cr>", desc = "Reveal current file on Neotree" },
+      { "<leader><leader>", "<cmd>Neotree reveal<cr>", desc = "Reveal current file on Neotree" },
     },
   },
   {
@@ -111,12 +111,21 @@ return {
     },
   },
   {
-    "folke/snacks.nvim",
-    lazy = false,
+    "snacks.nvim",
     opts = {
       terminal = {
         win = {
           style = "float",
+        },
+      },
+      ---@class snacks.scroll.Config
+      scroll = {
+        animate = {
+          duration = {
+            step = 15,
+            total = 150,
+          },
+          spamming = 5,
         },
       },
     },

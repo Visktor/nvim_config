@@ -20,4 +20,5 @@ return {
     "sindrets/diffview.nvim",
     event = "VeryLazy",
   },
+  { "akinsho/git-conflict.nvim", version = "*", config = true },
 }

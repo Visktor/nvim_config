@@ -40,11 +40,12 @@ return {
         ["Find Subword Under"] = "<C-n>",
         -- ["Start Regex Search"] = "<C-Do wn>",
         ["Add Cursor At Pos"] = "<C-\\>",
- 
+
         -- ["Visual Regex"] = "\\A",
         ["Visual Add"] = "\\f",
         -- ["Visual Cursors"] = "<M-b>", -- select some text firstly , then <M-b>
 
+        ["Select All"] = "\\a", --  1. selected some text in visual mode 2. press <C-q>j to select all
         ["Add Cursor Up"] = "<S-Up>",
         ["Add Cursor Down"] = "<S-Down>",
         -- ["Start Regex Search"] = "<C-q>/",
@@ -84,7 +85,7 @@ return {
         ["Remove Last Region"] = "\\q",
         ["Visual Subtract"] = "\\s",
         ["Case Conversion  Menu"] = "\\C",
- 
+
         ["Run Normal"] = "\\z",
         ["Run Last  Normal"] = "\\Z",
         ["Run Visual"] = "\\v",

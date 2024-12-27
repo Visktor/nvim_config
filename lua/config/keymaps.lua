@@ -2,8 +2,6 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 --> Movement
-map({ "n" }, "<C-d>", "<C-d>zz")
-map({ "n" }, "<C-u>", "<C-u>zz")
 map({ "v", "o", "x" }, "H", "{")
 map({ "v", "o", "x" }, "L", "}")
 
@@ -14,7 +12,7 @@ map("n", "<M-Y>", [["+Y]])
 map({ "n", "v" }, "<M-d>", [["_d]])
 
 --> Util
-map({ "i", "n", "x", "o" }, "<C-c>", "<Esc>", { remap = true })
+map({ "i", "n", "x", "o"  }, "<C-c>", "<Esc>", { remap = true })
 map({ "n" }, "<leader>ce", "<cmd>EslintFixAll<cr>", { desc = "Eslint Fix" })
 map("n", "<leader>gg", function()
   require("snacks").terminal("lazygit", {
@@ -42,11 +40,6 @@ map("n", "dB", "dBx")
 
 --> Insert
 map({ "i" }, "<C-l>", "<DEL>")
-
---> Telescope
-map({ "n" }, "<leader>fD", "", { desc = "Find in Directory" })
-map({ "n" }, "<leader>fDw", "<cmd>Telescope dir live_grep<cr>", { desc = "Find Word in Directory" })
-map({ "n" }, "<leader>fDf", "<cmd>Telescope dir live_grep<cr>", { desc = "Find File in Directory" })
 
 --> Hop
 map({ "n" }, "s", "<cmd>HopWord<cr>", opts)
@@ -210,5 +203,3 @@ map({ "n", "v" }, "<leader>aq", function()
     require("CopilotChat").ask(input)
   end
 end, { desc = " Quick Chat" })
-
-map({ "n" }, "m", "", { desc = "Mark" })

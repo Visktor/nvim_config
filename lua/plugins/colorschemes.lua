@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-moon",
+      colorscheme = "tokyonight-storm",
     },
   },
   -- {
@@ -17,7 +17,7 @@ return {
   --       mode = "light",
   --     })
   --   end,
-  -- },
+  -- },        
   -- { "ellisonleao/gruvbox.nvim" },
   -- {
   --   "rebelot/kanagawa.nvim",
@@ -47,7 +47,7 @@ return {
         -- colors.green2 = "#41a6b5"
         -- colors.blue1 = "#30E3CA"
         colors.blue = "#fca7ea"
-        -- colors.green = "#D2FF72"
+        colors.green = "#D2FF92"
         -- colors.cyan = "#C8FFE0"
         --   -- bg = "#222436",
         --   -- bg_dark = "#1e2030",

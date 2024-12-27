@@ -40,35 +40,6 @@ return {
     event = "VeryLazy",
   },
   {
-    "karb94/neoscroll.nvim",
-    event = "bufRead",
-    disable = true,
-    config = function()
-      require("neoscroll").setup({
-        mappings = { "<C-y>", "<C-e>", "zt", "zz", "zb" },
-        easing = "linear",
-        hide_cursor = false, -- Hide cursor while scrolling
-        stop_eof = true, -- Stop at <EOF> when scrolling downwards
-        respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-        cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-        duration_multiplier = 0.8,
-        pre_hook = function()
-          vim.opt.eventignore:append({
-            "WinScrolled",
-            "CursorMoved",
-          })
-        end,
-        post_hook = function()
-          vim.opt.eventignore:remove({
-            "WinScrolled",
-            "CursorMoved",
-          })
-        end,
-        performance_mode = true,
-      })
-    end,
-  },
-  {
     "m-demare/hlargs.nvim",
     config = function()
       require("hlargs").setup()
