@@ -15,43 +15,27 @@ return {
         winblend = 0,
       },
     },
-
-    keys = {
-      { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Telescope Undo Tree" },
-      { "<leader>fj", "<cmd>Telescope jumplist<cr>", desc = "Telescope JumpList" },
-      { "<leader><leader>", false },
-      {
-        "<leader>j",
-        function()
-          require("telescope.builtin").find_files()
-        end,
-        desc = "Find File",
-      },
-    },
-
+    keys = require("config.plugin_keymaps").telescope,
     init = function()
       require("telescope").load_extension("undo")
+      require("telescope").load_extension("dir")
+      require("telescope").load_extension("git_selector")
     end,
   },
   {
     "princejoogie/dir-telescope.nvim",
     -- telescope.nvim is a required dependency
     requires = { "nvim-telescope/telescope.nvim" },
-    config = function()
-      require("dir-telescope").setup({
-        -- these are the default options set
-        hidden = true,
-        no_ignore = false,
-        show_preview = true,
-      })
-    end,
+    keys = require("config.plugin_keymaps").telescope_dir,
+    opts = {
+      -- these are the default options set
+      hidden = true,
+      no_ignore = false,
+      show_preview = true,
+    },
   },
   {
-    "LukasPietzschmann/telescope-tabs",
-    config = function()
-      require("telescope").load_extension("telescope-tabs")
-      require("telescope-tabs").setup({})
-    end,
-    dependencies = { "nvim-telescope/telescope.nvim" },
+    "davvid/telescope-git-selector.nvim",
+    dependencies = { "davvid/telescope-git-grep.nvim" },
   },
 }

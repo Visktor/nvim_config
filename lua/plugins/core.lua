@@ -113,9 +113,11 @@ return {
   {
     "snacks.nvim",
     opts = {
+      ---@class snacks.terminal.Config
       terminal = {
         win = {
           style = "float",
+          border = "rounded",
         },
       },
       ---@class snacks.scroll.Config
@@ -128,6 +130,10 @@ return {
           spamming = 5,
         },
       },
+    },
+    keys = {
+      { "<C-_>", false },
+      { "<C-/>", false },
     },
   },
   {

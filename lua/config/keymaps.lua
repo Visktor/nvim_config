@@ -12,7 +12,7 @@ map("n", "<M-Y>", [["+Y]])
 map({ "n", "v" }, "<M-d>", [["_d]])
 
 --> Util
-map({ "i", "n", "x", "o"  }, "<C-c>", "<Esc>", { remap = true })
+map({ "i", "n", "x", "o" }, "<C-c>", "<Esc>", { remap = true })
 map({ "n" }, "<leader>ce", "<cmd>EslintFixAll<cr>", { desc = "Eslint Fix" })
 map("n", "<leader>gg", function()
   require("snacks").terminal("lazygit", {

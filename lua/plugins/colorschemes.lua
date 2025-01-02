@@ -5,19 +5,6 @@ return {
       colorscheme = "tokyonight-storm",
     },
   },
-  -- {
-  --   "neanias/everforest-nvim",
-  --   version = false,
-  --   lazy = false,
-  --   priority = 1000, -- make sure to load this before all the other start plugins
-  --   -- Optional; default configuration will be used if setup isn't called.
-  --   config = function()
-  --     require("everforest").setup({
-  --       background = "hard",
-  --       mode = "light",
-  --     })
-  --   end,
-  -- },        
   -- { "ellisonleao/gruvbox.nvim" },
   -- {
   --   "rebelot/kanagawa.nvim",
@@ -35,7 +22,7 @@ return {
   {
     "folke/tokyonight.nvim",
     opts = {
-      transparent = false,
+      transparent = true,
       on_colors = function(colors)
         -- colors.bg_visual = "#6C77B5"
         -- colors.comment = "#444b87"
