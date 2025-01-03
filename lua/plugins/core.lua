@@ -79,9 +79,13 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
       filesystem = {
-        bind_to_cwd = false,
+        bind_to_cwd = true,
         follow_current_file = { enabled = false },
         use_libuv_file_watcher = true,
+        cwd_target = {
+          sidebar = "global", -- sidebar is when position = left or right
+          current = "global", -- current is when position = current
+        },
       },
     },
     keys = {
