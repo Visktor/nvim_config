@@ -90,5 +90,6 @@ return {
       filetypes = { "js", "ts", "tsx" },
     },
   },
+  { "wakatime/vim-wakatime", lazy = false },
 }
 --

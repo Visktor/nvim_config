@@ -13,9 +13,9 @@ return {
         layout_config = { prompt_position = "top", width = 0.9, height = 0.9 },
         sorting_strategy = "ascending",
         winblend = 0,
-        file_ignore_patterns = {
-          ".*index.js.*",
-        },
+        -- file_ignore_patterns = {
+        --   ".*index.js.*",
+        -- },
         path_display = {
           "filename_first",
         },
