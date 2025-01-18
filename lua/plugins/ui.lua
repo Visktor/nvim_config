@@ -157,4 +157,18 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = true,
   },
+  {
+    "f-person/auto-dark-mode.nvim",
+    config = {
+      update_interval = 1000,
+      set_dark_mode = function()
+        require("notify")("Dark Mode")
+        vim.cmd("colorscheme tokyonight-storm")
+      end,
+      set_light_mode = function()
+        require("notify")("Light Mode")
+        vim.cmd("colorscheme catppuccin")
+      end,
+    },
+  },
 }

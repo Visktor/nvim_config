@@ -2,7 +2,15 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-storm",
+      colorscheme = "tokyonight-moon",
+    },
+  },
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    opts = {
+      flavour = "latte",
+      transparent_background = false,
     },
   },
   -- { "ellisonleao/gruvbox.nvim" },
@@ -19,6 +27,7 @@ return {
   --     })
   --   end,
   -- },
+  { "EdenEast/nightfox.nvim" },
   {
     "folke/tokyonight.nvim",
     opts = {
@@ -52,7 +61,7 @@ return {
         --   -- blue2 = "#0db9d7",
         --   -- blue5 = "#89ddff",
         --   -- blue6 = "#b4f9f8",
-        --   -- blue7 = "#394b70",
+        -- colors.blue7 = "#636da6"
         --   -- border = "#1b1d2b",
         --   -- border_highlight = "#589ed7",
         --   -- comment = "#636da6",
@@ -90,7 +99,7 @@ return {
         --   -- red = "#ff757f",
         --   -- red1 = "#c53b53",
         --   -- teal = "#4fd6be",
-        --   -- terminal_black = "#444a73",
+        colors.terminal_black = "#636da6"
         --   -- todo = "#82aaff",
         --   -- warning = "#ffc777",
         --   -- yellow = "#ffc777"
