@@ -115,10 +115,17 @@ return {
     },
   },
   {
+    "folke/snacks.nvim",
+    opts = {
+      terminal = { enabled = false },
+    },
+  },
+  {
     "snacks.nvim",
     opts = {
       ---@class snacks.terminal.Config
       terminal = {
+        enabled = false,
         win = {
           style = "float",
           border = "rounded",
@@ -134,10 +141,6 @@ return {
           spamming = 5,
         },
       },
-    },
-    keys = {
-      { "<C-_>", false },
-      { "<C-/>", false },
     },
   },
   {

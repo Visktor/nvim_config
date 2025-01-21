@@ -5,6 +5,27 @@ local opts = { noremap = true, silent = true }
 map({ "v", "o", "x" }, "H", "{")
 map({ "v", "o", "x" }, "L", "}")
 
+map("n", "<C-/>", function()
+  local count = vim.v.count1
+  require("toggleterm").toggle(count, 0, vim.loop.cwd(), "float")
+end, {
+  desc = "ToggleTerm",
+})
+
+map("n", "<C-_>", function()
+  local count = vim.v.count1
+  require("toggleterm").toggle(count, 0, vim.loop.cwd(), "float")
+end, {
+  desc = "ToggleTerm",
+})
+
+map("n", [[<C-_>]], function()
+  local count = vim.v.count1
+  require("toggleterm").toggle(count, 0, vim.loop.cwd(), "float")
+end, {
+  desc = "ToggleTerm",
+})
+
 --> Registers
 map({ "x", "v" }, "<M-p>", [["_dP]])
 map({ "n", "v" }, "<M-y>", [["+y]])
@@ -152,7 +173,7 @@ end, { desc = "Delete Session" })
 
 --> Search and Replace
 map({ "n", "v" }, "<leader>r", "", { desc = "Search and Replace" })
-map({ "n", "v" }, "<leader>rr", function()
+map({ "n", "v" }, "<leader>re", function()
   local grug = require("grug-far")
   local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
   grug.open({
@@ -160,6 +181,13 @@ map({ "n", "v" }, "<leader>rr", function()
     prefills = {
       filesFilter = ext and ext ~= "" and "*." .. ext or nil,
     },
+  })
+end, { desc = "Files of same extension" })
+map({ "n", "v" }, "<leader>rr", function()
+  local grug = require("grug-far")
+  local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+  grug.open({
+    transient = true,
   })
 end, { desc = "Files of same extension" })
 map({ "n", "v" }, "<leader>rf", function()

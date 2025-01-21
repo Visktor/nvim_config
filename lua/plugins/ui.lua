@@ -77,9 +77,6 @@ return {
     version = "^1.0.0", -- optional: only update when a new 1.x version is released
   },
   {
-    "tzachar/highlight-undo.nvim",
-  },
-  {
     "goolord/alpha-nvim",
     event = "VimEnter",
     enabled = true,
@@ -170,5 +167,11 @@ return {
         vim.cmd("colorscheme catppuccin")
       end,
     },
+  },
+  {
+    "nacro90/numb.nvim",
+    config = function()
+      require("numb").setup()
+    end,
   },
 }

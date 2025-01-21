@@ -1,47 +1,23 @@
 return {
-  "mxsdev/nvim-dap-vscode-js",
-  opts = {
-    debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
-    adapters = {
-      "chrome",
-      "pwa-node",
-      "pwa-chrome",
-      "pwa-msedge",
-      "node-terminal",
-      "pwa-extensionHost",
-      "node",
-      "chrome",
-    },
+  {
+    "mfussenegger/nvim-dap",
+    opts = {},
+    init = function()
+      for _, language in ipairs({ "typescript", "javascript" }) do
+        require("dap").configurations[language] = {
+          {
+            type = "pwa-node",
+            request = "attach",
+            name = "Auto Attach (pwa-node)",
+            cwd = vim.fn.getcwd(),
+            sourceMaps = true,
+            skipFiles = {
+              "<node_internals>/**",
+              "${workspaceFolder}/node_modules/**",
+            },
+          },
+        }
+      end
+    end,
   },
-
-  init = function()
-    local js_based_languages = { "typescript", "javascript", "typescriptreact" }
-
-    for _, language in ipairs(js_based_languages) do
-      require("dap").configurations[language] = {
-        {
-          type = "pwa-node",
-          request = "launch",
-          name = "Launch file",
-          program = "${file}",
-          cwd = "${workspaceFolder}",
-        },
-        {
-          type = "pwa-node",
-          request = "attach",
-          name = "Attach",
-          processId = require("dap.utils").pick_process,
-          cwd = "${workspaceFolder}",
-        },
-        {
-          type = "pwa-chrome",
-          request = "launch",
-          name = 'Start Chrome with "localhost"',
-          url = "http://localhost:3000",
-          webRoot = "${workspaceFolder}",
-          userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir",
-        },
-      }
-    end
-  end,
 }

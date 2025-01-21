@@ -20,6 +20,13 @@ return {
         --   date_format = "%d-%m-%Y",
         --   time_format = "%H:%M:%S",
         -- },
+        daily_notes = {
+          folder = "notes/dailies",
+          date_format = "%d-%m-%Y",
+          alias_format = "%B %-d, %Y",
+          default_tags = { "daily-notes" },
+          template = nil,
+        },
 
         note_id_func = function(title)
           -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
