@@ -77,6 +77,16 @@ return {
 
       local lspkind = require("lspkind")
 
+      opts.window = {
+        completion = {
+          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+          col_offset = -3,
+          side_padding = 0,
+        },
+      }
+
+
+
       opts.formatting = vim.tbl_deep_extend("force", opts.formatting, {
         format = lspkind.cmp_format({
           mode = "symbol", -- show only symbol annotations

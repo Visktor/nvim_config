@@ -2,8 +2,20 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-moon",
+      colorscheme = "kanagawa-wave",
     },
+  },
+  {
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000, -- make sure to load this before all the other start plugins
+    -- Optional; default configuration will be used if setup isn't called.
+    config = function()
+      require("everforest").setup({
+        background = "hard",
+      })
+    end,
   },
   {
     "catppuccin/nvim",
@@ -12,6 +24,10 @@ return {
       flavour = "latte",
       transparent_background = false,
     },
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    opts = {},
   },
   -- { "ellisonleao/gruvbox.nvim" },
   -- {
@@ -100,7 +116,7 @@ return {
         --   -- red1 = "#c53b53",
         --   -- teal = "#4fd6be",
         colors.terminal_black = "#636da6"
-        --   -- todo = "#82aaff",
+        --d   -- todo = "#82aaff",
         --   -- warning = "#ffc777",
         --   -- yellow = "#ffc777"
         --

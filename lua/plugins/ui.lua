@@ -22,6 +22,8 @@ return {
         local lensBak
         local config = require("hlslens.config")
         local gid = vim.api.nvim_create_augroup("VMlens", {})
+
+        --  VIM visual multi compatibility
         vim.api.nvim_create_autocmd("User", {
           pattern = { "visual_multi_start", "visual_multi_exit" },
           group = gid,
@@ -160,11 +162,12 @@ return {
       update_interval = 1000,
       set_dark_mode = function()
         require("notify")("Dark Mode")
-        vim.cmd("colorscheme tokyonight-storm")
+        vim.cmd("colorscheme kanagawa-wave")
       end,
       set_light_mode = function()
         require("notify")("Light Mode")
-        vim.cmd("colorscheme catppuccin")
+        vim.cmd("set background=light")
+        vim.cmd("colorscheme everforest")
       end,
     },
   },

@@ -52,20 +52,15 @@ return {
     "folke/snacks.nvim",
     opts = {
       terminal = { enabled = false },
+      scratch = { enabled = false },
     },
   },
   {
     "snacks.nvim",
     opts = {
-      ---@class snacks.terminal.Config
-      terminal = {
-        enabled = false,
-        win = {
-          style = "float",
-          border = "rounded",
-        },
-      },
       ---@class snacks.scroll.Config
+            ---
+      scratch = { enabled = false },
       scroll = {
         animate = {
           duration = {
