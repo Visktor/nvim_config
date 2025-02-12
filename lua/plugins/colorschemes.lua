@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa-wave",
+      colorscheme = "catppuccin-mocha",
     },
   },
   {
@@ -47,7 +47,7 @@ return {
   {
     "folke/tokyonight.nvim",
     opts = {
-      transparent = true,
+      transparent = false,
       on_colors = function(colors)
         -- colors.bg_visual = "#6C77B5"
         -- colors.comment = "#444b87"

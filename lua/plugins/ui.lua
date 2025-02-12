@@ -162,12 +162,12 @@ return {
       update_interval = 1000,
       set_dark_mode = function()
         require("notify")("Dark Mode")
-        vim.cmd("colorscheme kanagawa-wave")
+        vim.cmd("colorscheme tokyonight-night")
       end,
       set_light_mode = function()
         require("notify")("Light Mode")
         vim.cmd("set background=light")
-        vim.cmd("colorscheme everforest")
+        vim.cmd("colorscheme catppuccin-latte")
       end,
     },
   },

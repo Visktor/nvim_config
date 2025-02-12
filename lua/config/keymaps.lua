@@ -35,28 +35,28 @@ map({ "n", "v" }, "<M-d>", [["_d]])
 --> Util
 map({ "i", "n", "x", "o" }, "<C-c>", "<Esc>", { remap = true })
 map({ "n" }, "<leader>ce", "<cmd>EslintFixAll<cr>", { desc = "Eslint Fix" })
--- map("n", "<leader>gg", function()
---   require("snacks").terminal("lazygit", {
---     interactive = true,
---     win = {
---       keys = {
---         term_normal = {
---           "<C-c>",
---           function()
---             local keys = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
---             vim.api.nvim_feedkeys(keys, "t", false)
---           end,
---           silent = true,
---           expr = true,
---           mode = "t",
---         },
---       },
---       relative = "editor",
---       width = 0,
---       height = 0,
---     },
---   })
--- end, { desc = "Lazygit (cwd)" })
+map("n", "<leader>gg", function()
+  require("snacks").terminal("lazygit", {
+    interactive = true,
+    win = {
+      keys = {
+        term_normal = {
+          "<C-c>",
+          function()
+            local keys = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
+            vim.api.nvim_feedkeys(keys, "t", false)
+          end,
+          silent = true,
+          expr = true,
+          mode = "t",
+        },
+      },
+      relative = "editor",
+      -- width = 0,
+      -- height = 0,
+    },
+  })
+end, { desc = "Lazygit (cwd)" })
 map("n", "dB", "dBx")
 
 --> Insert
