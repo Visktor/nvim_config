@@ -59,16 +59,10 @@ return {
     "snacks.nvim",
     opts = {
       ---@class snacks.scroll.Config
-            ---
+      ---
       scratch = { enabled = false },
       scroll = {
-        animate = {
-          duration = {
-            step = 15,
-            total = 150,
-          },
-          spamming = 5,
-        },
+        enabled = false,
       },
     },
   },

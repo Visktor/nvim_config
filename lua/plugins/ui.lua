@@ -47,11 +47,11 @@ return {
       require("hlargs").setup()
     end,
   },
-  {
-    "rmagatti/goto-preview",
-    event = "BufEnter",
-    config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
-  },
+  -- {
+  --   "rmagatti/goto-preview",
+  --   event = "BufEnter",
+  --   config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
+  -- },
   {
     "razak17/tailwind-fold.nvim",
     opts = {},
@@ -156,25 +156,42 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = true,
   },
-  {
-    "f-person/auto-dark-mode.nvim",
-    config = {
-      update_interval = 1000,
-      set_dark_mode = function()
-        require("notify")("Dark Mode")
-        vim.cmd("colorscheme tokyonight-night")
-      end,
-      set_light_mode = function()
-        require("notify")("Light Mode")
-        vim.cmd("set background=light")
-        vim.cmd("colorscheme catppuccin-latte")
-      end,
-    },
-  },
+  -- {
+  --   "f-person/auto-dark-mode.nvim",
+  --   config = {
+  --     update_interval = 1000,
+  --     set_dark_mode = function()
+  --       require("notify")("Dark Mode")
+  --       vim.cmd("colorscheme tokyonight-storm")
+  --     end,
+  --     set_light_mode = function()
+  --       require("notify")("Light Mode")
+  --       vim.cmd("set background=light")
+  --       vim.cmd("colorscheme catppuccin-latte")
+  --     end,
+  --   },
+  -- },
   {
     "nacro90/numb.nvim",
     config = function()
       require("numb").setup()
     end,
+  },
+  {
+    "karb94/neoscroll.nvim",
+    opts = {
+      hide_cursor = false,
+      performance_mode = false,
+      duration_multiplier = 0.5,
+      mappings = { -- Keys to be mapped to their corresponding default scrolling animation
+        "<C-b>",
+        "<C-f>",
+        "<C-y>",
+        "<C-e>",
+        "zt",
+        "zz",
+        "zb",
+      },
+    },
   },
 }

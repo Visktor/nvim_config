@@ -91,5 +91,22 @@ return {
     },
   },
   { "wakatime/vim-wakatime", lazy = false },
+  {
+    "echasnovski/mini.visits",
+    version = "*",
+    config = function()
+      require("mini.visits").setup({
+        path = vim.fn.stdpath("data") .. "/mini-visits-index",
+        track = {
+          -- Start visit register timer at this event
+          -- Supply empty string (`''`) to not do this automatically
+          event = "BufEnter",
+
+          -- Debounce delay after event to register a visit
+          delay = 1000,
+        },
+      })
+    end,
+  },
 }
 --
