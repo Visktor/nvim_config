@@ -1,3 +1,5 @@
+
+
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -44,23 +46,28 @@ return {
     "davvid/telescope-git-selector.nvim",
     dependencies = { "davvid/telescope-git-grep.nvim" },
   },
-  {
-    "danielfalk/smart-open.nvim",
-    branch = "0.2.x",
-    init = function()
-      require("telescope").load_extension("smart_open")
-    end,
-    opts = {
-      cwd_only = true,
-      filename_first = false,
-    },
-    keys = {
-      { "<leader>fo", "<cmd>Telescope smart_open<cr>", desc = "Smart Open" },
-    },
-    dependencies = {
-      "kkharji/sqlite.lua",
-      -- Optional.  If installed, native fzy will be used when match_algorithm is fzy
-      { "nvim-telescope/telescope-fzy-native.nvim" },
-    },
-  },
+  -- {
+  --   "danielfalk/smart-open.nvim",
+  --   branch = "0.2.x",
+  --   init = function()
+  --     require("telescope").load_extension("smart_open")
+  --   end,
+  --   opts = {
+  --     cwd_only = true,
+  --     filename_first = false,
+  --   },
+  --   keys = {
+  --     { "<leader>fo", "<cmd>Telescope smart_open<cr>", desc = "Smart Open" },
+  --   },
+  --   dependencies = {
+  --     "kkharji/sqlite.lua",
+  --     { "nvim-telescope/telescope-fzy-native.nvim" },
+  --   },
+  -- },
 }
+
+
+--  => Cheat Sheet
+--  Search whole word in fzf = Prefix word with "'" such as 'word
+--
+--  Search whole word in vim regex = Prefix word with "\<" such as \<word>\

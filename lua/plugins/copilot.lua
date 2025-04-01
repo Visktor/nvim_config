@@ -18,6 +18,7 @@ return {
     },
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
+      model = "gpt-4o-mini",
       auto_insert_mode = true,
       question_header = "  " .. "Visktor" .. " ",
       answer_header = "  Copilot ",

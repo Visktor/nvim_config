@@ -8,9 +8,6 @@ map({ "v", "o", "x" }, "H", "{")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
-map("n", "dw", "diw")
-map("n", "dW", "diW")
-
 map("n", "<C-/>", function()
   local count = vim.v.count1
   require("toggleterm").toggle(count, 0, vim.loop.cwd(), "float")

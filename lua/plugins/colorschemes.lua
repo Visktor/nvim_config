@@ -1,9 +1,39 @@
 return {
   {
     "LazyVim/LazyVim",
+    opts = { colorscheme = "tokyonight-night" },
+  },
+  {
+    "Tsuzat/NeoSolarized.nvim",
+    lazy = true,
+    priority = 1000, -- make sure to load this before all the other start plugins
+  },
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = true,
+    priority = 1000,
     opts = {
-      colorscheme = "tokyonight",
+      variant = "auto", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
+      -- Enable transparent background
+      transparent = true,
     },
+  },
+  {
+    "rktjmp/lush.nvim",
+    lazy = true,
+  },
+  {
+    "anAcc22/sakura.nvim",
+    lazy = true,
+  },
+  {
+    "rose-pine/neovim",
+    lazy = true,
+    name = "rose-pine",
+  },
+  {
+    "Scysta/pink-panic.nvim",
+    lazy = true,
   },
   -- {
   --   "neanias/everforest-nvim",
@@ -47,7 +77,7 @@ return {
   {
     "folke/tokyonight.nvim",
     opts = {
-      transparent = false,
+      transparent = true,
       style = "storm",
       on_colors = function(colors)
         -- colors.bg_visual = "#6C77B5"
