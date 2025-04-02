@@ -13,6 +13,7 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     cmd = "Neotree",
     keys = {
+      { "<leader><leader>", "<cmd>Neotree reveal<cr>", desc = "Reveal current file on Neotree" },
       {
         "<leader>fe",
         function()
@@ -136,23 +137,6 @@ return {
         end,
       })
     end,
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = function(_, opts)
-      opts.filesystem = vim.tbl_deep_extend("force", opts.filesystem, {
-        bind_to_cwd = true,
-        follow_current_file = { enabled = false },
-        use_libuv_file_watcher = true,
-        cwd_target = {
-          sidebar = "global", -- sidebar is when position = left or right
-          current = "global", -- current is when position = current
-        },
-      })
-    end,
-    keys = {
-      { "<leader><leader>", "<cmd>Neotree reveal<cr>", desc = "Reveal current file on Neotree" },
-    },
   },
   {
     "williamboman/mason.nvim",

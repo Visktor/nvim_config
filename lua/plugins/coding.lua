@@ -67,13 +67,13 @@ return {
     end,
     lazy = false,
   },
-  {
-    "jiaoshijie/undotree",
-    config = true,
-    keys = {
-      { "<leader>cu", "<cmd>lua require('undotree').toggle()<cr>", desc = "Undo Tree" },
-    },
-  },
+  -- {
+  --   "jiaoshijie/undotree",
+  --   config = true,
+  --   keys = {
+  --     { "<leader>cu", "<cmd>lua require('undotree').toggle()<cr>", desc = "Undo Tree" },
+  --   },
+  -- },
   {
     "chentoast/marks.nvim",
     event = "VeryLazy",
