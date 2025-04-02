@@ -2,6 +2,7 @@ return {
   {
     "sustech-data/wildfire.nvim",
     event = "VeryLazy",
+    vscode = true,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
       require("wildfire").setup({
@@ -23,6 +24,7 @@ return {
   },
   {
     "gbprod/yanky.nvim",
+    vscode = true,
   },
   { -- Multi Cursor
     -- https://github.com/chrisgrieser/.config/blob/106d4eb2f039f1b9506fd5cfeed7e7d09f832e87/nvim/lua/plugins/bulk-processing.lua#L3C12-L3C12

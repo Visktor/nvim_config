@@ -70,6 +70,7 @@ return {
   {
     "chrisgrieser/nvim-recorder",
     dependencies = "rcarriga/nvim-notify",
+    vscode = true,
     opts = {
       mapping = {
         startStopRecording = "q",

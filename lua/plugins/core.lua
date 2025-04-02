@@ -181,6 +181,7 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
+    vscode = true,
     keys = {
       { "S", mode = { "n", "o", "t", "i", "s", "x" }, false },
       { "s", mode = { "n", "o" }, false },
@@ -205,6 +206,7 @@ return {
   {
     "monaqa/dial.nvim",
     lazy = false,
+        vscode = true,
     keys = {
       { "+", "<C-a>", mode = { "n", "v" } },
       { "-", "<C-x>", mode = { "n", "v" } },

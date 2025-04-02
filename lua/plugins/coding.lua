@@ -2,6 +2,7 @@ return {
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    vscode = true,
     event = "VeryLazy",
     config = function()
       require("nvim-surround").setup({
@@ -50,6 +51,7 @@ return {
   {
     "echasnovski/mini.ai",
     event = "VeryLazy",
+    vscode = true,
     opts = {
       n_lines = 2000,
       custom_textobjects = {
@@ -77,6 +79,7 @@ return {
   {
     "chentoast/marks.nvim",
     event = "VeryLazy",
+    vscode = true,
     opts = {
       default_mappings = false,
       mappings = {
@@ -95,6 +98,7 @@ return {
   {
     "chrisgrieser/nvim-spider",
     lazy = true,
+    vscode = true,
     opts = {
       subwordMovement = false,
     },
@@ -107,10 +111,12 @@ return {
   {
     "chrisgrieser/nvim-various-textobjs",
     event = "VeryLazy",
+    vscode = true,
     opts = { useDefaults = true },
   },
   {
     "Goose97/timber.nvim",
+    vscode = true,
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()

@@ -1,6 +1,7 @@
 return {
   "folke/todo-comments.nvim",
   cmd = { "TodoTrouble" },
+  vscode = true,
   event = "LazyFile",
   opts = {
     highlight = {
