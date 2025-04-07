@@ -76,3 +76,13 @@ autocmd("VimLeavePre", {
     end
   end,
 })
+
+autocmd("BufWritePre", {
+  pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.vue" },
+  callback = function()
+    vim.cmd("silent EslintFixAll")
+    -- Add your custom actions here
+    -- For example, to run a command:
+    -- vim.cmd("!echo 'Save completed at' $(date)")
+  end,
+})
