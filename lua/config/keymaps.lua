@@ -1,12 +1,34 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- local cursors = require('vscode-multi-cursor')
+
+-- map({ "n", "x", "i", "v" }, "<C-n>", function()
+--     require("vscode-multi-cursor").addSelectionToNextFindMatch()
+--   end)
+-- map({ 'n', 'x' }, 'mc', cursors.create_cursor, { expr = true, desc = 'Create cursor' })
+-- map({ 'n' }, 'mcc', cursors.cancel, { desc = 'Cancel/Clear all cursors' })
+
+-- map({ 'n', 'x' }, 'ma', cursors.start_right, { desc = 'Start cursors on the right' })
+-- map({ 'n', 'x' }, 'mA', cursors.start_right, { desc = 'Start cursors on the right' })
+-- map({ 'n' }, '[mc', cursors.prev_cursor, { desc = 'Goto prev cursor' })
+-- map({ 'n' }, ']mc', cursors.next_cursor, { desc = 'Goto next cursor' })
+-- map({ 'n' }, 'mcs', cursors.flash_char, { desc = 'Create cursor using flash' })
+-- map({ 'n' }, 'mcw', cursors.flash_word, { desc = 'Create selection using flash' })
+-- map({ 'x' }, 'I', function()
+--     local mode = api.nvim_get_mode().mode
+--     M.start_left_edge { no_selection = mode == '\x16' }
+-- end)
+-- map({ 'x' }, 'A', function()
+--     local mode = api.nvim_get_mode().mode
+--     M.start_right { no_selection = mode == '\x16' }
+-- end)
+-- vim.keymap.set('n', '<C-n>', 'mciw*<Cmd>nohl<CR>', { remap = true })
+
+
 --> Movement
 map({ "v", "o", "x" }, "L", "}")
 map({ "v", "o", "x" }, "H", "{")
-
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
 
 --> Registers
 map({ "x", "v" }, "<M-p>", [["_dP]])
