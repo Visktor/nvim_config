@@ -2,6 +2,17 @@ local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 local save_fold = augroup("Persistent Folds", { clear = true })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "txt" },
+  callback = function()
+    vim.opt_local.spell = false
+  end,
+})
+
+if vim.g.vscode then
+    return {}
+end
+
 autocmd("RecordingEnter", {
   callback = function()
     require("lualine").refresh()
