@@ -2,7 +2,21 @@ return {
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
+    keys = {
+      { "<C-g>s", "<Plug>(nvim-surround-insert)", mode = "i" },
+      { "<C-g>S", "<Plug>(nvim-surround-insert-line)", mode = "i" },
+      { "S", "<Plug>(nvim-surround-normal)", mode = "n" },
+      { "SS", "<Plug>(nvim-surround-normal-cur)", mode = "n" },
+      { "SSG", "<Plug>(nvim-surround-normal-cur-line)", mode = "n" },
+      { "S", "<Plug>(nvim-surround-visual)", mode = "x" },
+      { "SG", "<Plug>(nvim-surround-visual-line)", mode = "x" },
+      { "ds", "<Plug>(nvim-surround-delete)", mode = "n" },
+      { "cs", "<Plug>(nvim-surround-change)", mode = "n" },
+      { "cS", "<Plug>(nvim-surround-change-line)", mode = "n" },
+    },
+    init = function()
+      vim.g.nvim_surround_no_mappings = true
+    end,
     config = function()
       require("nvim-surround").setup({
         surrounds = {
@@ -32,23 +46,11 @@ return {
             add = { "{", "}" },
           },
         },
-        keymaps = {
-          insert = "<C-g>s",
-          insert_line = "<C-g>S",
-          normal = "S",
-          normal_cur = "SS",
-          normal_cur_line = "SSG",
-          visual = "S",
-          visual_line = "SG",
-          delete = "ds",
-          change = "cs",
-          change_line = "cS",
-        },
       })
     end,
   },
   {
-    "echasnovski/mini.ai",
+    "nvim-mini/mini.ai",
     event = "VeryLazy",
     opts = {
       n_lines = 2000,
@@ -58,22 +60,6 @@ return {
       search_method = "cover_or_nearest",
     },
   },
-  {
-    "dmmulroy/tsc.nvim",
-    config = function()
-      require("tsc").setup({
-        run_as_monorepo = true,
-      })
-    end,
-    lazy = false,
-  },
-  -- {
-  --   "jiaoshijie/undotree",
-  --   config = true,
-  --   keys = {
-  --     { "<leader>cu", "<cmd>lua require('undotree').toggle()<cr>", desc = "Undo Tree" },
-  --   },
-  -- },
   {
     "chentoast/marks.nvim",
     event = "VeryLazy",

@@ -129,7 +129,7 @@ return {
     end,
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
         "stylua",
@@ -165,6 +165,9 @@ return {
       scratch = { enabled = false },
       scroll = {
         enabled = false,
+      },
+      indent = {
+        animate = { enabled = false },
       },
     },
   },
