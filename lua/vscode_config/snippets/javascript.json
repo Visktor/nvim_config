@@ -1,8 +1,0 @@
-{
-    "umsnippet": {
-        "prefix": [
-            "snippet"
-        ],
-        "body": "console.log('$1');"
-    }
-}

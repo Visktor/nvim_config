@@ -9,10 +9,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-if vim.g.vscode then
-    return {}
-end
-
 autocmd("RecordingEnter", {
   callback = function()
     require("lualine").refresh()
@@ -91,9 +87,8 @@ autocmd("VimLeavePre", {
 autocmd("BufWritePre", {
   pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.vue" },
   callback = function()
-    vim.cmd("silent EslintFixAll")
-    -- Add your custom actions here
-    -- For example, to run a command:
-    -- vim.cmd("!echo 'Save completed at' $(date)")
+    if vim.fn.exists(":EslintFixAll") == 2 then
+      vim.cmd("silent EslintFixAll")
+    end
   end,
 })
