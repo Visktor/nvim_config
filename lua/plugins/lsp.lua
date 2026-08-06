@@ -6,6 +6,23 @@ return {
         virtual_text = false,
       })
       opts.inlay_hints = vim.tbl_deep_extend("force", opts.inlay_hints, { enabled = false })
+
+      -- Override LazyVim's default K->hover (buffer-local, set on LspAttach) so
+      -- it peeks the fold under cursor first. A plain global keymap.set("n","K",...)
+      -- in keymaps.lua would get shadowed by this buffer-local one on every attach.
+      opts.servers = opts.servers or {}
+      opts.servers["*"] = opts.servers["*"] or {}
+      opts.servers["*"].keys = opts.servers["*"].keys or {}
+      table.insert(opts.servers["*"].keys, {
+        "K",
+        function()
+          local winid = require("ufo").peekFoldedLinesUnderCursor()
+          if not winid then
+            vim.lsp.buf.hover()
+          end
+        end,
+        desc = "Hover / Peek Fold",
+      })
       -- opts.servers = { eslint = {} }
       -- opts.setup = {
       --   eslint = function()
@@ -39,7 +56,7 @@ return {
           options = {
             -- NOTE: if you activate persist, then please remove any vim.cmd("colorscheme ...") in your config, no needed anymore
             persist = true, -- very efficient mechanism to Remember selected colorscheme
-            write_shada = false, -- If you open multiple nvim instances, then probably you need to enable this
+            write_shada = true, -- If you open multiple nvim instances, then probably you need to enable this
           },
         },
       })

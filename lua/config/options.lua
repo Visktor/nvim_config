@@ -1,21 +1,17 @@
 local opt = vim.opt
 
--- UFO folding
-vim.o.foldcolumn = "1"
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+-- Folding: nvim-ufo (plugins/ufo.lua) takes over per-buffer via foldmethod=manual;
+-- this is just the fallback for buffers ufo detaches from (filetype_exclude).
+opt.foldenable = true
+opt.foldlevel = 99 -- ufo needs a large value, manual foldmethod won't auto-close otherwise
+opt.foldlevelstart = 99
+opt.foldcolumn = "auto:9" -- statuscol.nvim renders the real gutter once ufo attaches
+opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
 -- vim.o.spelllang = "en,pt"
 vim.o.background = "dark"
-
-opt.foldlevelstart = 99
-opt.foldenable = true
-opt.foldlevel = 99
-opt.foldnestmax = 1
-opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldmethod = "expr"
-opt.foldcolumn = "auto:9"
 
 opt.guicursor = ""
 opt.relativenumber = true

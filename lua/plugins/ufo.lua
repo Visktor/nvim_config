@@ -22,8 +22,15 @@ return {
     event = "BufReadPost",
     opts = {
       filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
-      provider_selector = function()
-        return { "treesitter", "indent" }
+      provider_selector = function(_, _, buftype)
+        -- nofile buffers (dashboards, terminals, etc.) crash treesitter provider
+        -- with an unhandled UfoFallbackException; skip ufo for them entirely
+        if buftype ~= "" and buftype ~= "acwrite" then
+          return ""
+        end
+        -- lsp main, treesitter fallback: ufo only reads providers[1] and [2],
+        -- a 3rd entry (e.g. "indent") would silently never run
+        return { "lsp", "treesitter" }
       end,
     },
 
@@ -70,6 +77,13 @@ return {
       opts.fold_virt_text_handler = handler
 
       require("ufo").setup(opts)
+
+      -- required by ufo: native zR/zM don't reliably track fold state once
+      -- foldmethod becomes "manual" (what ufo sets under the hood)
+      vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open All Folds" })
+      vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close All Folds" })
+      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Open Folds Except Kinds" })
+      vim.keymap.set("n", "zm", require("ufo").closeFoldsWith, { desc = "Close Folds With" })
     end,
   },
   -- Folding preview, by default h and l keys are used.
