@@ -30,7 +30,7 @@ require("lazy").setup({
       end,
     },
     {
-      import = "lazyvim.plugins.extras.coding.nvim-cmp",
+      import = "lazyvim.plugins.extras.coding.blink",
     },
     {
       import = "lazyvim.plugins.extras.coding.luasnip",
