@@ -1,19 +1,10 @@
 return {
   {
     "lambdalisue/suda.vim",
-    dependencies = {
-      {
-        "AstroNvim/astrocore",
-        opts = {
-          mappings = {
-            n = {
-              ["<Leader>W"] = { "<Cmd>SudaWrite<CR>", desc = "Suda Write" },
-            },
-          },
-        },
-      },
-    },
     cmd = { "SudaRead", "SudaWrite" },
+    keys = {
+      { "<leader>W", "<cmd>SudaWrite<cr>", desc = "Suda Write" },
+    },
   },
   { "kevinhwang91/nvim-bqf" },
   {
@@ -104,7 +95,40 @@ return {
     },
   },
   {
-    "echasnovski/mini.visits",
+    "chrisgrieser/nvim-genghis",
+    keys = {
+      {
+        "<leader>yp",
+        function()
+          require("genghis").copyFilepath()
+        end,
+        desc = "Copy Absolute Path",
+      },
+      {
+        "<leader>yr",
+        function()
+          require("genghis").copyRelativePath()
+        end,
+        desc = "Copy Relative Path",
+      },
+      {
+        "<leader>yn",
+        function()
+          require("genghis").copyFilename()
+        end,
+        desc = "Copy Filename",
+      },
+      {
+        "<leader>yd",
+        function()
+          require("genghis").copyDirectoryPath()
+        end,
+        desc = "Copy Directory Path",
+      },
+    },
+  },
+  {
+    "nvim-mini/mini.visits",
     version = "*",
     config = function()
       require("mini.visits").setup({
