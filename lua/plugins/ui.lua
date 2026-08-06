@@ -68,6 +68,7 @@ return {
       vim.g.barbar_auto_setup = false
     end,
     opts = {
+      animation = false,
       highlight_inactive_file_icons = false,
       highlight_visible = false,
       highlight_alternate = false,
@@ -98,11 +99,11 @@ return {
       dashboard.section.header.val = vim.split(logo, "\n")
     -- stylua: ignore
     dashboard.section.buttons.val = {
-      dashboard.button("f", " " .. " Find file",       LazyVim.pick()),
+      dashboard.button("f", " " .. " Find file",       "<cmd> lua LazyVim.pick()() <cr>"),
       dashboard.button("n", " " .. " New file",        [[<cmd> ene <BAR> startinsert <cr>]]),
-      dashboard.button("r", " " .. " Recent files",    LazyVim.pick("oldfiles")),
-      dashboard.button("g", " " .. " Find text",       LazyVim.pick("live_grep")),
-      dashboard.button("c", " " .. " Config",          LazyVim.pick.config_files()),
+      dashboard.button("r", " " .. " Recent files",    [[<cmd> lua LazyVim.pick("oldfiles")() <cr>]]),
+      dashboard.button("g", " " .. " Find text",       [[<cmd> lua LazyVim.pick("live_grep")() <cr>]]),
+      dashboard.button("c", " " .. " Config",          "<cmd> lua LazyVim.pick.config_files()() <cr>"),
       dashboard.button("s", " " .. " Restore Session", [[<cmd> lua require("resession").load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true }) <cr>]]),
       dashboard.button("x", " " .. " Lazy Extras",     "<cmd> LazyExtras <cr>"),
       dashboard.button("l", "󰒲 " .. " Lazy",            "<cmd> Lazy <cr>"),
@@ -179,19 +180,13 @@ return {
   },
   {
     "karb94/neoscroll.nvim",
+    enabled = false,
+  },
+  {
+    "rcarriga/nvim-notify",
     opts = {
-      hide_cursor = false,
-      performance_mode = false,
-      duration_multiplier = 0.5,
-      mappings = { -- Keys to be mapped to their corresponding default scrolling animation
-        "<C-b>",
-        "<C-f>",
-        "<C-y>",
-        "<C-e>",
-        "zt",
-        "zz",
-        "zb",
-      },
+      stages = "static",
+      timeout = 1500,
     },
   },
 }
